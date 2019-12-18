@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\begin{document}
+\title{ECE 269 Homework 1}
+\author{Joseph Bell}
+\date{October 15, 2019}
+\maketitle
+\textbf{Problem 1}
+\newline
+\textbf{a)}
+\newline
+ Let S = [1, 2, 3] and choose $\alpha = \pi$ from the field
+$\alpha * S = [\pi, 2\pi, 3\pi]$ is no longer included in the set of rational numbers.
+\newline
+\newline
+\textbf{b)}
+\newline
+Choosing $\alpha = -1$ from the field and performing scalar multiplication brings the polynomial outside the set of positive real numbers.
+\newline
+\newline
+\textbf{c)}
+\newline
+\textbf{i)} Fails closure property for scalar multiplation
+\newline
+Let S = $[1, 1]^{T}$ and $\alpha=2$
+\newline
+$2*[1, 1]^{T} = [2, 2]^{T}$ not $[2, 1]^{T}$
+\newline
+\newline
+\textbf{ii)} Fails axiom M5 from the text (1*x = x for every x that is a member of the vector space) 
+\newline 
+Let S = $[1, 1]^{T}$ and $\alpha=1$
+\newline
+$1*[1, 1]^{T} = [1, 1]^{T}$ not $[1, 0]^{T}$
+\newline
+\newline
+\textbf{iii)} Fails closure property for vector addition
+\newline 
+Let $S_{1} = [2, 2]^{T}$ and $S_{2} = [3, 2]^{T}$
+\newline
+$[2, 2]^{T} + [3, 2]^{T} = [5, 4]^{T}$ not $[0, 0]^{T}$
+\newline
+\newline
+\textbf{iv)} Fails closure property for vector addition
+\newline
+Let $S_{1} = [3, 2]^{T}$ and $S_{2} = [2, 3]^{T}$
+\newline
+$[3, 2]^{T} + [2, 3]^{T} = [5, 5]^{T}$ not $[1, -1]^{T}$
+\newline
+\newline
+\textbf{Problem 2}
+\newline
+The value of k provides information on matrix B when one observes if k is odd or even. An even value of k indicates that there are self loops and an odd value of k indicates that there are no self loops (although there will be multiple paths connecting vertices). 
+\newline
+Due to A being symmetric (and having no self-loops or multiple edges) each value for A results in $A_{ij} = A_{ji}$ and every $A_{ii} = 0$, therefore every time a row is dotted with a column the zero values add up and the non-zero values add up, thus changing every $A_{ii}$ to a non-zero (therefore indicating self loops). Now when performing another dot product of the new B matrix with A, the non-zero values line up with the zero values and are canceled out again to result in every $A_{ii} = 0$ again. This pattern continues indefinitely.
+\newline
+Using a 3x3 symmetric matrix as an example:
+\newline
+A = $\left(\begin{array}{ccc} 0 & 1 & 0 \\ 1 & 0 & 1  \\ 0 & 1 & 0  \end{array}\right)$
+\newline
+\newline
+$A^{2}$ =  $\left(\begin{array}{ccc} 1 & 0 & 1 \\ 0 & 2 & 0  \\ 1 & 0 & 1  \end{array}\right)$
+\newline
+\newline
+$A^{3}$ =  $\left(\begin{array}{ccc} 0 & 2 & 0 \\ 2 & 0 & 2  \\ 0 & 2 & 0  \end{array}\right)$
+\newline
+\newline
+$A^{4}$ =  $\left(\begin{array}{ccc} 2 & 0 & 2 \\ 0 & 4 & 0  \\ 2 & 0 & 2  \end{array}\right)$
+\newline
+\newline
+Another example:
+\newline
+\newline
+A = $\left(\begin{array}{ccc} 0 & 0 & 1 \\ 0 & 0 & 1  \\ 1 & 1 & 0  \end{array}\right)$
+\newline
+\newline
+$A^{2}$ =  $\left(\begin{array}{ccc} 1 & 1 & 0 \\ 1 & 1 & 0  \\ 0 & 0 & 2  \end{array}\right)$
+\newline
+\newline
+$A^{3}$ =  $\left(\begin{array}{ccc} 0 & 0 & 2 \\ 0 & 0 & 2  \\ 2 & 2 & 0  \end{array}\right)$
+\newline
+\newline
+$A^{4}$ =  $\left(\begin{array}{ccc} 2 & 2 & 0 \\ 2 & 2 & 0  \\ 0 & 0 & 4  \end{array}\right)$
+\newline
+\newline
+\textbf{Problem 3}
+\newline
+\textbf{a)}
+\newline
+Let a = $\alpha + \alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n}$ and b = $\beta + \beta_{1}x + \beta_{2}x^{2} + ... \beta_{n}x^{n}$
+\newline
+a + b = $\alpha + \alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n} + \beta + \beta_{1}x + \beta_{2}x^{2} + ... \beta_{n}x^{n} = (\alpha + \beta) + (\alpha_{1} + \beta_{1}) x + (\alpha_{2} + \beta_{2}) x^{2} + ... (\alpha_{n} + \beta_{n}) x^{n}$ by using the M4 axiom in the textbook. The addition of the 2 polynomials is the same as both a and b just with different coefficients and is therefore still in the vector space (this proves axiom A1 closure under addition).
+\newline
+Any addition of polynomials in any order (and with any number of polynomials) will result in another polynomial of the same form (another polynomial just with different coefficients) so A3 and A2 are inherently proven as well by the closure of addition. 
+\newline
+For a = $\alpha + \alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n}$ making $\alpha$ equal to 0 results in a = 0, so the 0 vector exists. Also, $\alpha + \alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n}$ + 0 = $\alpha + \alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n}$ (Axiom A4).
+\newline
+For a = $\alpha + \alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n}$ and c = $-\alpha + -\alpha_{1}x + -\alpha_{2}x^{2} + ... -\alpha_{n}x^{n}$, a + c = 0 so the additive inverse exists (Axiom A5).
+\newline
+Taking a scalar z and multiplying a by z results in $z\alpha + z\alpha_{1}x + z\alpha_{2}x^{2} + ... z\alpha_{n}x^{n}$ which again is just another polynomial in the vector space that has different coefficient values (using axiom M4 from the text). This prove closure under scalar multiplication (Axiom M1). For axiom M2 $(\alpha \beta)(x + x^{2} + ... x^{n}) = \beta (\alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n})$
+\newline
+For Axiom M3 $\alpha (x + x^{2} + ... x^{n} + y + y^{2} + ... y^{n})$ does equal $\alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n} + \alpha_{1}y + \alpha_{2}y^{2} + ... \alpha_{n}y^{n}$
+\newline
+Multiplying a by 1 results in $\alpha + \alpha_{1}x + \alpha_{2}x^{2} + ... \alpha_{n}x^{n}$ which is equivalent to a (Axiom M5).
+\newline
+The dimension of the vector space is n + 1.
+\newline
+\textbf{b)}
+\newline
+The union of 2 vector spaces is not necessarily a vector space (unless 1 vector space is contained in the other). Whereas elements of the vector spaces are closed under addition in their respective vector space, they are not necessarily closed under addition between the 2 vector spaces when there is a union. 
+\newline
+For example if one vector space is closed under addition for the set of all even degree polynomials and the other vector space is closed under addition for the set of all odd polynomials, then the addition of odd and even polynomials is not necessarily closed in the union of the two vector spaces.
+\newline
+\textbf{c)}
+\newline
+Using the standard basis of $P^{4} = [1, x, x^{2}, x^{3}, x^{4}]$ and noting that this has dimension 5 I need to choose a minimal spanning set (i.e. dimension of 5) that is linearly independent.
+\newline
+Let $S = [x, x^{2}+1, x^{2}-1, x^{3}, x^{4}]$ and form the matrix A = $\left(\begin{array}{ccccc} 0 & 1 & -1 & 0 & 0\\ 1 & 0 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\0 & 0 & 0 & 0 & 1 \end{array}\right)$
+\newline
+RREF of A results in $\left(\begin{array}{ccccc} 1 & 0 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\0 & 0 & 0 & 0 & 1 \end{array}\right)$ which proves the set of vectors in S are independent.
+\newline
+Then to prove that the set spans $P^{4}$: 
+\newline
+$ax + b(x^{2} + 1) + c(x^{2}-1) + d(x^{3} + e(x^{4})$ where a = b = d = e = 1 and c = 0 one obtains $x^{4} + x^{3} + x^{2} + x + 1$ which is in the form $a_{0}x^{4} + a_{1}x^{3} + a_{2}x^{2} + a_{4}x + a_{5}$.
+\newline
+Therefore, the set is basis for $P^{4}$.
+\newline
+\textbf{d)}
+\newline
+Using the standard basis of $P^{2} = [1, x, x^{2}]$ I can organize the set into the matrix A = $\left(\begin{array}{ccccc} 1 & 1 & 2 & 3 & 2\\ 1 & 1 & 1 & 2 & 2 \\ 0 & -1 & -2 & -3 & -2 \end{array}\right)$
+\newline
+RREF of matrix A results in $\left(\begin{array}{ccccc} 1 & 0 & 0 & 0 & 1\\ 0 & 1 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 & 0 \end{array}\right)$
+\newline
+To prove that the set spans $P^{2}$:
+\newline
+$a(1+x) + b(x+x^{2}) + c(x+2x^{2})$	where a = b = c = 1 one obtains $3x^{2} + 3{x} + 1$ which is in the form $a_{0}x^{2} + a_{1}x + a_{2}$
+\newline
+Therefore $[1+ x,x + x^{2},x +2x^{2}]$ form a basis of $P^{2}$
+\newline
+\newline
+\textbf{Problem 4}
+\newline
+a)\textbf{Yes. 
+}\newline
+Given any matrices a and b that are symmetric - it follows that $a^{T} = a$ and $b^{T} = b$. To test closure under addition, transposing (a+b) is the same as $a^{T} + b^{T}$ which is the same as a + b. So this set is closed under addition.
+\newline 
+To test closure under scalar multiplication using x (taken from the field of real values) gives $(x*a)^{T}$ which is equivalent to $x * a^{T}$ which is equivalent to x*a. So this set is also closed under scalar multiplication.
+\newline
+\textbf{b)}Yes.
+\newline
+This explanation is the same as part a except that the scalar multiplier x is in the imaginary realm. The same situation occurs for all vectors.
+\newline
+\textbf{c)}Yes. 
+\newline
+Given any matrices x and y that are Hermitian - it follows that $x^{H} = a$ and $y^{H} = b$. To test closure under addition, transposing and taking the complex conjugate of (x+y) is the same as $x^{H} + y^{H}$ which is the same as x + y. So this set is closed under addition.
+\newline 
+To test closure under scalar multiplication using w (taken from the field of real values) gives $(w*x)^{H}$ which is equivalent to $w * x^{H}$ which is equivalent to w*x. So this set is also closed under scalar multiplication.
+\newline
+\textbf{d)} No. 
+\newline
+Starting with the Hermitian matrix A = $\left(\begin{array}{cc} 2 & -i + 1  \\ i + 1 & 1  \end{array}\right)$ and multiplying by i from the field results in $\left(\begin{array}{cc} 2i & 2  \\ 0 & i  \end{array}\right)$.
+\newline
+The conjugate transpose of this new matrix is $\left(\begin{array}{cc} -2i & 0  \\ 2 & -i  \end{array}\right)$, which is no longer Hermitian. 
+\newline
+\newline
+\textbf{Problem 5}
+\newline
+\textbf{a)}
+\newline
+Let x be a vector and let y and z be additive inverses of vector x. By the definition of an additive inverse, x + y = 0 and x + z = 0. 
+\newline
+It is an axiom that for every vector, x, in a vector space there exists an element such that x + 0 = x.
+\newline
+Therefore, this also means that y + 0 = y and a substitution can be made such that y + (x + z) = y. 
+\newline
+Then, there is an axiom of subspaces called the associative law which allows one to convert the previous equation into: (y + x) + z = y. Finally, since y is an additive inverse of x, and x + y = 0, the equation results in 0 + z = y. Looking back at the previous axiom stating that for every vector in a vector space there exists an element such that x + 0 = x, the equation 0 + z = y proves that z and y are the same vector (i.e. are equal to each other) and therefore the additive inverse of x (and any vector in a given subspace) is unique.
+\newline
+\newline
+\textbf{b)}
+\newline
+The span of the initial spanning set is equivalent to the linear combination of all the vectors in the spanning set. Also, for the additional vector, v, any scalar multiple of v must also be in the vector space. It also is an axiom that the addition of vectors in a vectorspace must also be in the vectorspace.
+\newline
+Put algebraically: $a_{1}*w1 + a_{2}*w2 ... + a_{n}*wn + a_{n+1}*v$ must be in the vector space. This is equivalent to the span of the set of vectors including the additional vector v.
+\newline
+Also, the original span (prior to the additional vector v being added) can be represented by equating $a_{n+1}$ to 0.
+\newline
+Therefore, further solidifying that both spanning sets are equal to each other and that no new vectors are added to the span of the original set of vectors given that the new vector, v, is in the same vector space.
+\newline
+\newline
+\textbf{Problem 6}
+\newline
+\textbf{i)}Yes. 
+\newline 
+If the set of x1, x2, ... xn are linear independent and they are stacked with a set of vectors y1, y2, ... yn (that are either dependent or independent), then the resulting stacked vectors will continue to be linearly independent. The reason is that stacking vectors adds extra planes spanned by the vectors, but does not account for the previous planes of the linearly independent set of vectors x1, x2, and xn. There will be no set of linear combination of additionally stacked vectors that will remove the independence of the first dimensions spanned by x1, x2, ... xn (they don't lie on the same plane). 
+\newline
+\textbf{ii)}
+\newline
+No.
+\newline
+Given the linear dependent set of matrices of x1, x2, and x3: $\left(\begin{array}{c} 3 \\ 3 \\3 \end{array}\right)$,$\left(\begin{array}{c} 2 \\ 2 \\2 \end{array}\right)$, and $\left(\begin{array}{c} 1 \\ 1 \\1 \end{array}\right)$
+\newline
+and the linear independent set of matrices y1, y2, and y3 (no assumption is made on this set of vectors so they could be linearly independent): $\left(\begin{array}{c} 1 \\ 0 \\0 \end{array}\right)$, $\left(\begin{array}{c} 0 \\ 1 \\0 \end{array}\right)$, and $\left(\begin{array}{c} 0 \\ 0 \\1 \end{array}\right)$
+\newline
+Then the stacked form is: $\left(\begin{array}{ccc} 3 & 2 & 1 \\ 3 & 2 & 1 \\ 3 & 2 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array}\right)$
+\newline
+The RREF form of this matrix is then: $\left(\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{array}\right)$ which shows that the stacked matrices are linear independent. The reason that the stacked independent vectors converted the whole stack to independent vectors is explained in part i.
+\newline
+\newline
+\textbf{Problem 7}
+\newline
+\textbf{a)}
+\newline
+To find the intersection of two spanning sets, the linear combination of 1 set minus some linear combination of another set is set to 0. A matrix was created to represent this equation of [U - V][x] = 0, where x is a matrix of scalars used for linear combinations.
+\newline
+$\left(\begin{array}{ccccc} 2 & 1 & 0 & 0 & 0\\ -1 & 0 & -1 & 0 & 0 \\ 3 & -1 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 & -1\end{array}\right)$ * $\left(\begin{array}{c} a\\ b \\ c \\ d \\ e \end{array}\right)$ = $\left(\begin{array}{c} 0\\ 0 \\ 0 \\ 0 \\ 0 \end{array}\right)$
+\newline
+The matrix reduced to RREF results in: 
+\newline
+$\left(\begin{array}{ccccc} 1 & 0 & 0 & -1/5 & 0\\ 0 & 1 & 0 & 2/5 & 0 \\ 0 & 0 & 1 & 1/5 & 0 \\ 0 & 0 & 0 & 0 & 1\end{array}\right)$* $\left(\begin{array}{c} a\\ b \\ c \\ d \\ e \end{array}\right)$ = $\left(\begin{array}{c} 0\\ 0 \\ 0 \\ 0 \\ 0 \end{array}\right)$
+\newline
+Therefore, d is the free variable and I'll set it to equal 1. Resulting in a = 1/5, b = -2/5, c = -1/5, d = 1, and e = 0.
+\newline
+The resulting vector forming the basis of the intersection of the spanning sets, U and V, is  $\left(\begin{array}{c} 0\\ -1/5 \\ 1 \\ 1 \\ 0 \end{array}\right)$ 
+\newline
+This suggests the dimension of the intersection of the two spanning sets is 1. To check, by using equation 4.4.19 from the text, the dimension of the union is 4 (the 4 independent vectors denoted from the column space of the RREF matrix), the dimensions of U and V are 2 and 3 respectively, so therefore the dimension of the intersection must be 5 - 4 = 1.
+\newline
+\newline
+\textbf{b)}
+\newline
+For array A = $\left(\begin{array}{c} a_{1}\\ a_{2} \\ a_{3} \\ ... \\ a_{n} \end{array}\right)$ to have all elements sum up to 0 it must be true that $a_{n} = - a_{1} - a{2} ... - a_{n-1}$. 
+\newline
+\newline
+A can be rewritten as $a_{1}$ $\left(\begin{array}{c} 1\\ 0 \\ 0 \\ ... \\ 0 \end{array}\right)$ + $a_{2}$ $\left(\begin{array}{c} 0\\ 1 \\ 0 \\ ... \\ 0 \end{array}\right)$ ... +$a_{n}$ $\left(\begin{array}{c} 0\\ 0 \\ 0 \\ ... \\ 1 \end{array}\right)$
+\newline
+\newline
+Therefore, a basis for $R^{n}$ where all elements of the vectors add up to zero exists in the rewritten form if and only if $a_{n} = - a_{1} - a{2} ... - a_{n-1}$.
+\newline
+\newline
+\textbf{c)}
+\newline
+For array A = $\left(\begin{array}{c} a_{1}\\ a_{2} \\ a_{3} \\ ... \\ a_{n} \end{array}\right)$ to have all elements be equal then it must be true that $a_{1} = a_{2} ... = a_{n-1} = a_{n}$. 
+\newline
+\newline
+A can be rewritten as $a_{1}$ $\left(\begin{array}{c} 1\\ 0 \\ 0 \\ ... \\ 0 \end{array}\right)$ + $a_{2}$ $\left(\begin{array}{c} 0\\ 1 \\ 0 \\ ... \\ 0 \end{array}\right)$ ... +$a_{n}$ $\left(\begin{array}{c} 0\\ 0 \\ 0 \\ ... \\ 1 \end{array}\right)$
+\newline
+\newline
+Therefore, a basis for $R^{n}$ where all elements of the vectors are equal exists in the rewritten form if and only if $a_{1} = a{2} ... = a_{n-1} = a_{n}$.
+\newline
+\newline
+\textbf{d)}
+\newline The vectors can be rewritten into the matrix A = $\left(\begin{array}{cccc} 1 & 0 & 0 & 1 \\ 1 & 1 & 0 & 0  \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 1 & 1 \end{array}\right)$.
+\newline
+\newline
+\newline
+When A is converted to RREF it takes on the form $\left(\begin{array}{cccc} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & -1  \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right)$.
+\newline
+\newline
+\newline
+The RREF of matrix A shows that $\left(\begin{array}{c} 1\\ 1\\ 0 \\ 0 \end{array}\right)$, $\left(\begin{array}{c} 0\\ 1 \\ 1 \\ 0\end{array}\right)$, and $\left(\begin{array}{c} 0\\ 0 \\ 1 \\ 1 \end{array}\right)$ are the linear independent vectors of the spanning set, and are therefore the basis of the space spanned by the original 4 vectors.
+\end{document}

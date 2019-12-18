@@ -1,0 +1,2050 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw3_4</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-11-24"><meta name="DC.source" content="hw3_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%Joseph Bell</span>
+<span class="comment">%ECE271A HW3 and 4</span>
+
+clc;
+clear;
+load(<span class="string">'TrainingSamplesDCT_subsets_8.mat'</span>);
+load(<span class="string">'Alpha.mat'</span>);
+
+
+
+<span class="comment">%%%%% Starting off with Data Set 1 and strategy 1%%%%%</span>
+<span class="comment">% Strategy 1 = ?0 is smaller for the (darker) cheetah class (?0 = 1)</span>
+<span class="comment">% and larger for the (lighter) grass class (?0 = 3)</span>
+
+<span class="comment">%%%%% Part a %%%%%</span>
+<span class="comment">%load('Prior_1.mat'); %priors for strategy 1 - consists of weights, mu0_FG,</span>
+                     <span class="comment">%and mu0_BG</span>
+load(<span class="string">'Prior_2.mat'</span>); <span class="comment">%priors for strategy 2 - consists of weights, mu0_FG,</span>
+                     <span class="comment">%and mu0_BG</span>
+
+<span class="comment">% Reading in cheetah image and mask</span>
+cheetah_img = imread(<span class="string">'cheetah.bmp'</span>);
+cheetah_img = im2double(cheetah_img); <span class="comment">%converting to double values since training data is of type double</span>
+
+cheetah_mask = imread(<span class="string">'cheetah_mask.bmp'</span>);
+cheetah_mask = im2double(cheetah_mask);
+
+[cheetah_rows, cheetah_cols] = size(cheetah_img);
+cheetah_img = cheetah_img(1:8*floor(cheetah_rows/8),1:8*floor(cheetah_cols/8)); <span class="comment">%modifying image so it can be split into 8x8 blocks</span>
+[cheetah_rows, cheetah_cols] = size(cheetah_img); <span class="comment">%overwriting for modified dimensions</span>
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">%%%%%% STARTING LOOP %%%%%%%%%% Loops 4 times due to 4 data sets</span>
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="keyword">for</span> d=1:4
+    alpha_values = []; <span class="comment">%array of alpha values used for plotting</span>
+    error_percentages = []; <span class="comment">%array of error percentages per alpha used for plotting</span>
+    dataset_FG = []; <span class="comment">%stores selected foreground data set</span>
+    dataset_BG = []; <span class="comment">%stores selected background data set</span>
+
+    <span class="comment">%%%% IF/ELSEIF for selecting data set to operate on</span>
+    <span class="keyword">if</span> d == 1
+        dataset_FG = D1_FG;
+        dataset_BG = D1_BG;
+    <span class="keyword">elseif</span> d == 2
+        dataset_FG = D2_FG;
+        dataset_BG = D2_BG;
+    <span class="keyword">elseif</span> d == 3
+        dataset_FG = D3_FG;
+        dataset_BG = D3_BG;
+    <span class="keyword">elseif</span> d == 4
+        dataset_FG = D4_FG;
+        dataset_BG = D4_BG;
+    <span class="keyword">end</span>
+
+    <span class="comment">%Taking rows and cols used for calculations</span>
+    [data_rows_FG, data_cols_FG] = size(dataset_FG);
+    [data_rows_BG, data_cols_BG] = size(dataset_BG);
+
+
+    <span class="comment">%zig zag scanning of data to order coefficents from 1-64</span>
+    <span class="comment">%1 row per DC coefficient (First row should have largest values)</span>
+    cheetah_zigzag = zeros(64, data_rows_FG);
+    grass_zigzag = zeros(64, data_rows_BG);
+
+    <span class="comment">%Credit to Alexey Sokolov from https://www.mathworks.com/matlabcentral/fileexchange/15317-zigzag-scan</span>
+    <span class="comment">%for the zig zag code</span>
+
+    <span class="comment">%Reading into zig zag and transposing to create n*64 matrix</span>
+    <span class="keyword">for</span> row=1:data_rows_FG
+        cheetah_zigzag(:,row) = zigzag(dataset_FG(row,:));
+    <span class="keyword">end</span>
+
+    <span class="keyword">for</span> row=1:data_rows_BG
+        grass_zigzag(:,row) = zigzag(dataset_BG(row,:));
+    <span class="keyword">end</span>
+
+    means_variance_cheetah = zeros(64, 1, 2); <span class="comment">%(:,:,1) = mean</span>
+    means_variance_grass = zeros(64, 1, 2); <span class="comment">%(:,:,2) = variance</span>
+
+    <span class="comment">% Calculating mean and variance of each coefficient</span>
+    <span class="comment">% CODE COPIED FROM MY ASSIGNMENT 2</span>
+
+    <span class="comment">%cheetah loop</span>
+    <span class="keyword">for</span> row=1:data_cols_FG
+        N = data_rows_FG;
+        sample_mean = 0;
+        sample_variance = 0;
+
+        sample = cheetah_zigzag(row,:); <span class="comment">%grab each coefficient row</span>
+
+        <span class="keyword">for</span> i=1:N
+            sample_mean = sample_mean + sample(1,i);
+        <span class="keyword">end</span>
+        sample_mean = sample_mean/N;
+
+        <span class="keyword">for</span> i=1:N
+            sample_variance = sample_variance + (sample(1,i) - sample_mean)^2;
+        <span class="keyword">end</span>
+        sample_variance = sample_variance/N;
+
+        means_variance_cheetah(row,1,1) = sample_mean;
+        means_variance_cheetah(row,1,2) = sample_variance;
+    <span class="keyword">end</span>
+
+    <span class="comment">%grass loop</span>
+    <span class="keyword">for</span> row=1:data_cols_BG
+        N = data_rows_BG;
+        sample_mean = 0;
+        sample_variance = 0;
+
+        sample = grass_zigzag(row,:); <span class="comment">%grab each coefficient row</span>
+
+        <span class="keyword">for</span> i=1:N
+            sample_mean = sample_mean + sample(1,i);
+        <span class="keyword">end</span>
+        sample_mean = sample_mean/N;
+
+        <span class="keyword">for</span> i=1:N
+            sample_variance = sample_variance + (sample(1,i) - sample_mean)^2;
+        <span class="keyword">end</span>
+        sample_variance = sample_variance/N;
+
+        means_variance_grass(row,1,1) = sample_mean;
+        means_variance_grass(row,1,2) = sample_variance;
+    <span class="keyword">end</span>
+
+
+    <span class="comment">% Calculating covariance matrices for foreground (cheetah)</span>
+    <span class="comment">% and background (grass)</span>
+    <span class="comment">% CODE COPIED FROM MY ASSIGNMENT 2</span>
+    cheetah_covariances = zeros(64,64);
+    grass_covariances = zeros(64,64);
+
+    <span class="comment">%calculating covariance matrix for cheetah</span>
+    <span class="keyword">for</span> i=1:64
+        p1 = cheetah_zigzag(i,:); <span class="comment">%grab coefficient row</span>
+        mu_1 = means_variance_cheetah(i,1,1);
+        <span class="keyword">for</span> j=1:64
+            p2 = cheetah_zigzag(j,:); <span class="comment">%grab coefficient row</span>
+            mu_2 = means_variance_cheetah(j,1,1);
+            temp = 0;
+            <span class="keyword">for</span> k=1:data_rows_FG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2);
+            <span class="keyword">end</span>
+            cheetah_covariances(i,j) = temp/data_rows_FG;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">%calculating covariance matrix for grass</span>
+    <span class="keyword">for</span> i=1:64
+        p1 = grass_zigzag(i,:); <span class="comment">%grab coefficient row</span>
+        mu_1 = means_variance_grass(i,1,1);
+        <span class="keyword">for</span> j=1:64
+            p2 = grass_zigzag(j,:); <span class="comment">%grab coefficient row</span>
+            mu_2 = means_variance_grass(j,1,1);
+            temp = 0;
+            <span class="keyword">for</span> k=1:data_rows_BG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2);
+            <span class="keyword">end</span>
+            grass_covariances(i,j) = temp/data_rows_BG;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">%Used for probability calculations</span>
+    mu_n_hat_cheetah1 = zeros(1,64);
+    mu_n_hat_grass1 = zeros(1,64);
+    mu_n_cheetah1 = zeros(1,64);
+    mu_n_grass1 = zeros(1,64);
+
+    <span class="comment">%Used for MAP part</span>
+    prior_cheetah = data_rows_FG/(data_rows_FG + data_rows_BG);
+    prior_grass = data_rows_BG/(data_rows_BG+data_rows_FG);
+
+    <span class="comment">%%%%% Calculating mu_n_hat values %%%%</span>
+    <span class="keyword">for</span> i=1:64
+        <span class="keyword">for</span> j=1:data_rows_FG
+            mu_n_hat_cheetah1(1,i) = mu_n_hat_cheetah1(1,i) + dataset_FG(j,i);
+        <span class="keyword">end</span>
+        mu_n_hat_cheetah1(1,i) = mu_n_hat_cheetah1(1,i)/data_rows_FG;
+    <span class="keyword">end</span>
+
+    <span class="keyword">for</span> i=1:64
+        <span class="keyword">for</span> j=1:data_rows_BG
+            mu_n_hat_grass1(1,i) = mu_n_hat_grass1(1,i) + dataset_BG(j,i);
+        <span class="keyword">end</span>
+        mu_n_hat_grass1(1,i) = mu_n_hat_grass1(1,i)/data_rows_BG;
+    <span class="keyword">end</span>
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+    <span class="comment">%%%%% STARTING LOOP FOR ALPHA %%%%%</span>
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+    <span class="keyword">for</span> a=1:9
+
+
+        new_image = zeros(cheetah_rows, cheetah_cols); <span class="comment">%Returned image</span>
+
+        <span class="comment">%Values used for calculations%</span>
+        sigma_1 = alpha(1,a)*diag(W0);
+        mu_n_cheetah1 = sigma_1 * inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*transpose(mu_n_hat_cheetah1) + 1/data_rows_FG*cheetah_covariances*inv(sigma_1+1/data_rows_FG*cheetah_covariances)*transpose(mu0_FG);
+        mu_n_grass1 = sigma_1 * inv(sigma_1 + 1/data_rows_BG*grass_covariances)*transpose(mu_n_hat_grass1) + 1/data_rows_BG*grass_covariances*inv(sigma_1+1/data_rows_BG*grass_covariances)*transpose(mu0_BG);
+
+        sigma_n_cheetah = sigma_1*inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*1/data_rows_FG*cheetah_covariances;
+        sigma_n_grass = sigma_1*inv(sigma_1 + 1/data_rows_BG*grass_covariances)*1/data_rows_BG*grass_covariances;
+
+        sigma_cheetah_total = cheetah_covariances + sigma_n_cheetah;
+        sigma_grass_total = grass_covariances + sigma_n_grass;
+
+        <span class="comment">%Multivariate Gaussian Distribution PDF functions for part a</span>
+        fun_cheetah = @(x) 1/sqrt((det(sigma_cheetah_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_cheetah1)*inv(sigma_cheetah_total)*(x-mu_n_cheetah1));
+        fun_grass= @(x) 1/sqrt((det(sigma_grass_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_grass1)*inv(sigma_grass_total)*(x-mu_n_grass1));
+
+        <span class="comment">%%%%%%%%%% Classifying %%%%%%%%%%%%</span>
+        <span class="keyword">for</span> i=1:cheetah_cols-7 <span class="comment">%shift scan pointer over a column</span>
+            <span class="keyword">for</span> j=1:cheetah_rows-7
+
+                block = cheetah_img(j:7+j,i:7+i); <span class="comment">%grab 8x8 block</span>
+                block_dct = dct2(block);
+                zzblock_dct = transpose(zigzag(block_dct));
+
+                P_x_D_cheetah = fun_cheetah(zzblock_dct);
+                P_x_D_grass = fun_grass(zzblock_dct);
+                <span class="keyword">if</span> P_x_D_cheetah * prior_cheetah &gt; P_x_D_grass * prior_grass
+                    new_image(j:j,i:i) = 1;
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        f = figure() <span class="comment">% Returning image per alpha</span>
+        imagesc(new_image);
+        colormap(gray(255));
+        title([<span class="string">'Dataset: '</span>, num2str(d),<span class="string">' - Alpha: '</span>, num2str(alpha(1,a))])
+        saveas(f,[pwd,<span class="string">'/results/D_'</span>,num2str(d),<span class="string">'_A_'</span>,num2str(a),<span class="string">'.png'</span>]);
+        <span class="comment">%%%%% Calculating percent error for part a Alpha values %%%%%</span>
+        counter_correct = 0;
+        total_pixels = cheetah_rows*cheetah_cols;
+        <span class="keyword">for</span> i=1:cheetah_rows
+            <span class="keyword">for</span> j=1:cheetah_cols
+                <span class="keyword">if</span> cheetah_mask(i,j) ==  new_image(i,j)
+                    counter_correct = counter_correct + 1;
+                <span class="keyword">end</span>
+
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        percent_correct = counter_correct/total_pixels*100;
+        error_percentage = 100 - percent_correct;
+
+        alpha_values = [alpha_values log(alpha(1,a))];
+        error_percentages = [error_percentages error_percentage];
+
+    <span class="keyword">end</span><span class="comment">% END OF a=1:9 Still in d data set loop</span>
+
+    f = figure() <span class="comment">%plotting percent error vs alpha</span>
+    plot(alpha_values, error_percentages);
+    ylim([floor(min(error_percentages))-0.1 ceil(max(error_percentages))+0.1])
+
+    title([<span class="string">'Dataset: '</span>, num2str(d), <span class="string">' - Error Vs Log Alpha'</span>]);
+    saveas(f,[pwd,<span class="string">'/results/error_plot_D_'</span>,num2str(d),<span class="string">'.png'</span>]);
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%% Assignment 2 Method %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+    <span class="comment">% Starting loop of alphas for assignment 2 approach</span>
+    <span class="comment">%calculating MLE covariance matrix for cheetah</span>
+    cheetah_covariances_MLE = zeros(64,64);
+    grass_covariances_MLE = zeros(64,64);
+    <span class="keyword">for</span> i=1:64
+        p1 = cheetah_zigzag(i,:); <span class="comment">%grab coefficient row</span>
+        mu_1 = means_variance_cheetah(i,1,1);
+        <span class="keyword">for</span> j=1:64
+            p2 = cheetah_zigzag(j,:); <span class="comment">%grab coefficient row</span>
+            mu_2 = means_variance_cheetah(j,1,1);
+            temp = 0;
+            <span class="keyword">for</span> k=1:data_rows_FG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2);
+            <span class="keyword">end</span>
+            cheetah_covariances_MLE(i,j) = temp/(data_rows_FG-1);
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">%calculating covariance matrix for grass</span>
+    <span class="keyword">for</span> i=1:64
+        p1 = grass_zigzag(i,:); <span class="comment">%grab coefficient row</span>
+        mu_1 = means_variance_grass(i,1,1);
+        <span class="keyword">for</span> j=1:64
+            p2 = grass_zigzag(j,:); <span class="comment">%grab coefficient row</span>
+            mu_2 = means_variance_grass(j,1,1);
+            temp = 0;
+            <span class="keyword">for</span> k=1:data_rows_BG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2);
+            <span class="keyword">end</span>
+            grass_covariances_MLE(i,j) = temp/(data_rows_BG-1);
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    alpha_values_Asn2 = []; <span class="comment">%array of alpha values used for plotting</span>
+    error_percentages_Asn2 = []; <span class="comment">%array of error percentages per alpha used for plotting</span>
+    <span class="keyword">for</span> a=1:9
+        new_image2 = zeros(cheetah_rows, cheetah_cols);
+        fun_cheetah_Asn2 = @(x) 1/sqrt((det(cheetah_covariances_MLE)*(2*pi)^64))*exp(-1/2*transpose(x-means_variance_cheetah(:,:,1))*inv(cheetah_covariances_MLE)*(x-means_variance_cheetah(:,:,1)));
+        fun_grass_Asn2= @(x) 1/sqrt((det(grass_covariances_MLE)*(2*pi)^64))*exp(-1/2*transpose(x-means_variance_grass(:,:,1))*inv(grass_covariances_MLE)*(x-means_variance_grass(:,:,1)));
+        <span class="keyword">for</span> i=1:cheetah_cols-7 <span class="comment">%shift scan pointer over a column</span>
+            <span class="keyword">for</span> j=1:cheetah_rows-7
+                block = cheetah_img(j:7+j,i:7+i); <span class="comment">%grab 8x8 block</span>
+                block_dct = dct2(block);
+                zzblock_dct = transpose(zigzag(block_dct));
+
+                P_x_y_cheetah = fun_cheetah_Asn2(zzblock_dct);
+                P_x_y_grass = fun_grass_Asn2(zzblock_dct);
+                <span class="keyword">if</span> P_x_y_cheetah * prior_cheetah &gt; P_x_y_grass * prior_grass
+                        new_image2(j:j,i:i) = 1;
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+
+
+        <span class="comment">%Calculating percent error of assignment 2 method</span>
+        counter_correct_Asn2 = 0;
+        total_pixels = cheetah_rows*cheetah_cols;
+        <span class="keyword">for</span> i=1:cheetah_rows
+            <span class="keyword">for</span> j=1:cheetah_cols
+                <span class="keyword">if</span> cheetah_mask(i,j) ==  new_image2(i,j)
+                    counter_correct_Asn2 = counter_correct_Asn2 + 1;
+                <span class="keyword">end</span>
+
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        percent_correct_Asn2 = counter_correct_Asn2/total_pixels*100;
+        error_percentage_Asn2 = 100 - percent_correct_Asn2;
+
+        alpha_values_Asn2 = [alpha_values_Asn2 log(alpha(1,a))];
+        error_percentages_Asn2 = [error_percentages_Asn2 error_percentage_Asn2];
+    <span class="keyword">end</span><span class="comment">%END OF a=1:9 for Assignment 2 MLE method</span>
+
+    f = figure() <span class="comment">%plotting assignment 2 method (1 per data set just plotting last one they're all the same)</span>
+    imagesc(new_image2);      <span class="comment">%as I'm not multiplying covariace by alpha for this part only using MLE</span>
+    colormap(gray(255));      <span class="comment">%percent error chart should be a horizontal line</span>
+    title([<span class="string">'Dataset: '</span>, num2str(d), <span class="string">' - Assignment 2 Method'</span>])
+    saveas(f,[pwd,<span class="string">'/results/Asn2_D_'</span>,num2str(d),<span class="string">'.png'</span>]);
+
+    f = figure() <span class="comment">%plotting percent error vs alpha (should only be 4 of these)</span>
+    plot(alpha_values_Asn2, error_percentages_Asn2);
+    ylim([floor(min(error_percentages_Asn2))-0.1 ceil(max(error_percentages_Asn2))+0.1])
+    title([<span class="string">'Asn2 Approach - Dataset: '</span>, num2str(d), <span class="string">' - Error Vs Log Alpha'</span>]);
+    saveas(f,[pwd,<span class="string">'/results/error_plot_Asn2_D_'</span>,num2str(d),<span class="string">'.png'</span>]);
+
+
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%% MAP APPROACH %%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+
+    alpha_values = []; <span class="comment">%Stores alpha values for plotting</span>
+    error_percentages = []; <span class="comment">%Stores error percentage per alpha</span>
+
+    <span class="comment">%Same stuff except using MAP for mu</span>
+    <span class="keyword">for</span> a=1:9
+        new_image = zeros(cheetah_rows, cheetah_cols);
+
+        sigma_1 = alpha(1,a)*diag(W0);
+
+        mu_n_cheetah1 = sigma_1 * inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*transpose(mu_n_hat_cheetah1) + 1/data_rows_FG*cheetah_covariances*inv(sigma_1+1/data_rows_FG*cheetah_covariances)*transpose(mu0_FG);
+        mu_n_grass1 = sigma_1 * inv(sigma_1 + 1/data_rows_BG*grass_covariances)*transpose(mu_n_hat_grass1) + 1/data_rows_BG*grass_covariances*inv(sigma_1+1/data_rows_BG*grass_covariances)*transpose(mu0_BG);;
+
+        <span class="comment">%sigma_n_cheetah = sigma_1*inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*1/data_rows_FG*cheetah_covariances;</span>
+        <span class="comment">%sigma_n_grass = sigma_1*inv(sigma_1 + 1/data_rows_BG*grass_covariances)*1/data_rows_BG*grass_covariances;</span>
+
+        sigma_n_cheetah = 0;
+        sigma_n_grass = 0;
+
+        sigma_cheetah_total = cheetah_covariances + sigma_n_cheetah;
+        sigma_grass_total = grass_covariances + sigma_n_grass;
+
+        fun_cheetah_D1c = @(x) 1/sqrt((det(sigma_cheetah_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_cheetah1)*inv(sigma_cheetah_total)*(x-mu_n_cheetah1));
+        fun_grass_D1c= @(x) 1/sqrt((det(sigma_grass_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_grass1)*inv(sigma_grass_total)*(x-mu_n_grass1));
+        <span class="keyword">for</span> i=1:cheetah_cols-7 <span class="comment">%shift scan pointer over a column</span>
+            <span class="keyword">for</span> j=1:cheetah_rows-7
+
+                block = cheetah_img(j:7+j,i:7+i); <span class="comment">%grab 8x8 block</span>
+                block_dct = dct2(block);
+                zzblock_dct = transpose(zigzag(block_dct));
+
+                P_x_D_cheetah = fun_cheetah_D1c(zzblock_dct);
+                P_x_D_grass = fun_grass_D1c(zzblock_dct);
+
+                <span class="keyword">if</span> P_x_D_cheetah * prior_cheetah &gt; P_x_D_grass * prior_grass
+                    new_image(j:j,i:i) = 1;
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        f = figure()<span class="comment">%Plotting per alpha for MAP approach</span>
+        imagesc(new_image);
+        colormap(gray(255));
+        title([<span class="string">'Dataset: '</span>, num2str(d), <span class="string">' - MAP Approach - Alpha: '</span>, num2str(alpha(1,a))])
+        saveas(f,[pwd,<span class="string">'/results/MAP_D_'</span>,num2str(d),<span class="string">'_A_'</span>,num2str(a),<span class="string">'.png'</span>]);
+        <span class="comment">%Calculating percent error for alpha and MAP approach</span>
+        counter_correct = 0;
+        total_pixels = cheetah_rows*cheetah_cols;
+        <span class="keyword">for</span> i=1:cheetah_rows
+            <span class="keyword">for</span> j=1:cheetah_cols
+                <span class="keyword">if</span> cheetah_mask(i,j) ==  new_image(i,j)
+                    counter_correct = counter_correct + 1;
+                <span class="keyword">end</span>
+
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        percent_correct = counter_correct/total_pixels*100;
+        error_percentage = 100 - percent_correct;
+
+        alpha_values = [alpha_values log(alpha(1,a))];
+        error_percentages = [error_percentages error_percentage];
+    <span class="keyword">end</span>
+
+    f = figure()<span class="comment">%Potting percent error vs alpha values for MAP</span>
+    plot(alpha_values, error_percentages);
+    ylim([floor(min(error_percentages))-0.1 ceil(max(error_percentages))+0.1])
+    title([<span class="string">'Dataset: '</span>, num2str(d), <span class="string">'- MAP Approach'</span>, <span class="string">' - Error Vs Log Alpha'</span>]);
+    saveas(f,[pwd,<span class="string">'/results/error_MAP_D'</span>,num2str(d),<span class="string">'.png'</span>]);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+f = 
+
+  Figure (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (2) with properties:
+
+      Number: 2
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (3) with properties:
+
+      Number: 3
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (4) with properties:
+
+      Number: 4
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (5) with properties:
+
+      Number: 5
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (6) with properties:
+
+      Number: 6
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (7) with properties:
+
+      Number: 7
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (8) with properties:
+
+      Number: 8
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (9) with properties:
+
+      Number: 9
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (10) with properties:
+
+      Number: 10
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (11) with properties:
+
+      Number: 11
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (12) with properties:
+
+      Number: 12
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (13) with properties:
+
+      Number: 13
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (14) with properties:
+
+      Number: 14
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (15) with properties:
+
+      Number: 15
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (16) with properties:
+
+      Number: 16
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (17) with properties:
+
+      Number: 17
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (18) with properties:
+
+      Number: 18
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (19) with properties:
+
+      Number: 19
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (20) with properties:
+
+      Number: 20
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (21) with properties:
+
+      Number: 21
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (22) with properties:
+
+      Number: 22
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (23) with properties:
+
+      Number: 23
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (24) with properties:
+
+      Number: 24
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (25) with properties:
+
+      Number: 25
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (26) with properties:
+
+      Number: 26
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (27) with properties:
+
+      Number: 27
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (28) with properties:
+
+      Number: 28
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (29) with properties:
+
+      Number: 29
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (30) with properties:
+
+      Number: 30
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (31) with properties:
+
+      Number: 31
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (32) with properties:
+
+      Number: 32
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (33) with properties:
+
+      Number: 33
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (34) with properties:
+
+      Number: 34
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (35) with properties:
+
+      Number: 35
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (36) with properties:
+
+      Number: 36
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (37) with properties:
+
+      Number: 37
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (38) with properties:
+
+      Number: 38
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (39) with properties:
+
+      Number: 39
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (40) with properties:
+
+      Number: 40
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (41) with properties:
+
+      Number: 41
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (42) with properties:
+
+      Number: 42
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (43) with properties:
+
+      Number: 43
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (44) with properties:
+
+      Number: 44
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (45) with properties:
+
+      Number: 45
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (46) with properties:
+
+      Number: 46
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (47) with properties:
+
+      Number: 47
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (48) with properties:
+
+      Number: 48
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (49) with properties:
+
+      Number: 49
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (50) with properties:
+
+      Number: 50
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (51) with properties:
+
+      Number: 51
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (52) with properties:
+
+      Number: 52
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (53) with properties:
+
+      Number: 53
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (54) with properties:
+
+      Number: 54
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (55) with properties:
+
+      Number: 55
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (56) with properties:
+
+      Number: 56
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (57) with properties:
+
+      Number: 57
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (58) with properties:
+
+      Number: 58
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (59) with properties:
+
+      Number: 59
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (60) with properties:
+
+      Number: 60
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (61) with properties:
+
+      Number: 61
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (62) with properties:
+
+      Number: 62
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (63) with properties:
+
+      Number: 63
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (64) with properties:
+
+      Number: 64
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (65) with properties:
+
+      Number: 65
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (66) with properties:
+
+      Number: 66
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (67) with properties:
+
+      Number: 67
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (68) with properties:
+
+      Number: 68
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (69) with properties:
+
+      Number: 69
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (70) with properties:
+
+      Number: 70
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (71) with properties:
+
+      Number: 71
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (72) with properties:
+
+      Number: 72
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (73) with properties:
+
+      Number: 73
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (74) with properties:
+
+      Number: 74
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (75) with properties:
+
+      Number: 75
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (76) with properties:
+
+      Number: 76
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (77) with properties:
+
+      Number: 77
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (78) with properties:
+
+      Number: 78
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (79) with properties:
+
+      Number: 79
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (80) with properties:
+
+      Number: 80
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (81) with properties:
+
+      Number: 81
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (82) with properties:
+
+      Number: 82
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (83) with properties:
+
+      Number: 83
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (84) with properties:
+
+      Number: 84
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (85) with properties:
+
+      Number: 85
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (86) with properties:
+
+      Number: 86
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (87) with properties:
+
+      Number: 87
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+f = 
+
+  Figure (88) with properties:
+
+      Number: 88
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 198 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+</pre><img vspace="5" hspace="5" src="hw3_4_01.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_02.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_03.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_04.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_05.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_06.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_07.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_08.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_09.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_10.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_11.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_12.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_13.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_14.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_15.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_16.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_17.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_18.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_19.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_20.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_21.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_22.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_23.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_24.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_25.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_26.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_27.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_28.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_29.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_30.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_31.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_32.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_33.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_34.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_35.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_36.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_37.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_38.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_39.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_40.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_41.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_42.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_43.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_44.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_45.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_46.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_47.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_48.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_49.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_50.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_51.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_52.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_53.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_54.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_55.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_56.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_57.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_58.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_59.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_60.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_61.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_62.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_63.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_64.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_65.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_66.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_67.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_68.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_69.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_70.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_71.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_72.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_73.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_74.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_75.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_76.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_77.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_78.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_79.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_80.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_81.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_82.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_83.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_84.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_85.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_86.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_87.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_88.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%Joseph Bell
+%ECE271A HW3 and 4
+
+clc;
+clear;
+load('TrainingSamplesDCT_subsets_8.mat');
+load('Alpha.mat');
+
+
+
+%%%%% Starting off with Data Set 1 and strategy 1%%%%%
+% Strategy 1 = ?0 is smaller for the (darker) cheetah class (?0 = 1) 
+% and larger for the (lighter) grass class (?0 = 3)
+
+%%%%% Part a %%%%%
+%load('Prior_1.mat'); %priors for strategy 1 - consists of weights, mu0_FG,
+                     %and mu0_BG
+load('Prior_2.mat'); %priors for strategy 2 - consists of weights, mu0_FG,
+                     %and mu0_BG                 
+
+% Reading in cheetah image and mask
+cheetah_img = imread('cheetah.bmp');
+cheetah_img = im2double(cheetah_img); %converting to double values since training data is of type double
+
+cheetah_mask = imread('cheetah_mask.bmp');
+cheetah_mask = im2double(cheetah_mask);
+
+[cheetah_rows, cheetah_cols] = size(cheetah_img);
+cheetah_img = cheetah_img(1:8*floor(cheetah_rows/8),1:8*floor(cheetah_cols/8)); %modifying image so it can be split into 8x8 blocks
+[cheetah_rows, cheetah_cols] = size(cheetah_img); %overwriting for modified dimensions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% STARTING LOOP %%%%%%%%%% Loops 4 times due to 4 data sets
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+for d=1:4
+    alpha_values = []; %array of alpha values used for plotting
+    error_percentages = []; %array of error percentages per alpha used for plotting
+    dataset_FG = []; %stores selected foreground data set
+    dataset_BG = []; %stores selected background data set
+    
+    %%%% IF/ELSEIF for selecting data set to operate on
+    if d == 1
+        dataset_FG = D1_FG;
+        dataset_BG = D1_BG;
+    elseif d == 2
+        dataset_FG = D2_FG;
+        dataset_BG = D2_BG;
+    elseif d == 3
+        dataset_FG = D3_FG;
+        dataset_BG = D3_BG;
+    elseif d == 4
+        dataset_FG = D4_FG;
+        dataset_BG = D4_BG;           
+    end
+    
+    %Taking rows and cols used for calculations
+    [data_rows_FG, data_cols_FG] = size(dataset_FG);
+    [data_rows_BG, data_cols_BG] = size(dataset_BG);
+    
+    
+    %zig zag scanning of data to order coefficents from 1-64
+    %1 row per DC coefficient (First row should have largest values)
+    cheetah_zigzag = zeros(64, data_rows_FG);
+    grass_zigzag = zeros(64, data_rows_BG);
+
+    %Credit to Alexey Sokolov from https://www.mathworks.com/matlabcentral/fileexchange/15317-zigzag-scan
+    %for the zig zag code
+    
+    %Reading into zig zag and transposing to create n*64 matrix
+    for row=1:data_rows_FG
+        cheetah_zigzag(:,row) = zigzag(dataset_FG(row,:));
+    end
+
+    for row=1:data_rows_BG
+        grass_zigzag(:,row) = zigzag(dataset_BG(row,:));
+    end
+
+    means_variance_cheetah = zeros(64, 1, 2); %(:,:,1) = mean
+    means_variance_grass = zeros(64, 1, 2); %(:,:,2) = variance
+
+    % Calculating mean and variance of each coefficient
+    % CODE COPIED FROM MY ASSIGNMENT 2
+
+    %cheetah loop
+    for row=1:data_cols_FG
+        N = data_rows_FG;
+        sample_mean = 0;
+        sample_variance = 0;
+
+        sample = cheetah_zigzag(row,:); %grab each coefficient row
+
+        for i=1:N
+            sample_mean = sample_mean + sample(1,i);
+        end
+        sample_mean = sample_mean/N;
+
+        for i=1:N
+            sample_variance = sample_variance + (sample(1,i) - sample_mean)^2;
+        end
+        sample_variance = sample_variance/N;
+
+        means_variance_cheetah(row,1,1) = sample_mean;
+        means_variance_cheetah(row,1,2) = sample_variance;
+    end
+
+    %grass loop
+    for row=1:data_cols_BG
+        N = data_rows_BG;
+        sample_mean = 0;
+        sample_variance = 0;
+
+        sample = grass_zigzag(row,:); %grab each coefficient row
+
+        for i=1:N
+            sample_mean = sample_mean + sample(1,i);
+        end
+        sample_mean = sample_mean/N;
+
+        for i=1:N
+            sample_variance = sample_variance + (sample(1,i) - sample_mean)^2;
+        end
+        sample_variance = sample_variance/N;
+
+        means_variance_grass(row,1,1) = sample_mean;
+        means_variance_grass(row,1,2) = sample_variance;
+    end
+
+
+    % Calculating covariance matrices for foreground (cheetah)
+    % and background (grass)
+    % CODE COPIED FROM MY ASSIGNMENT 2
+    cheetah_covariances = zeros(64,64);
+    grass_covariances = zeros(64,64);
+
+    %calculating covariance matrix for cheetah
+    for i=1:64
+        p1 = cheetah_zigzag(i,:); %grab coefficient row
+        mu_1 = means_variance_cheetah(i,1,1);
+        for j=1:64
+            p2 = cheetah_zigzag(j,:); %grab coefficient row
+            mu_2 = means_variance_cheetah(j,1,1);
+            temp = 0;
+            for k=1:data_rows_FG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2); 
+            end
+            cheetah_covariances(i,j) = temp/data_rows_FG;
+        end
+    end
+
+    %calculating covariance matrix for grass
+    for i=1:64
+        p1 = grass_zigzag(i,:); %grab coefficient row
+        mu_1 = means_variance_grass(i,1,1);
+        for j=1:64
+            p2 = grass_zigzag(j,:); %grab coefficient row
+            mu_2 = means_variance_grass(j,1,1);
+            temp = 0;
+            for k=1:data_rows_BG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2); 
+            end
+            grass_covariances(i,j) = temp/data_rows_BG;
+        end
+    end
+    
+    %Used for probability calculations
+    mu_n_hat_cheetah1 = zeros(1,64);
+    mu_n_hat_grass1 = zeros(1,64);
+    mu_n_cheetah1 = zeros(1,64);
+    mu_n_grass1 = zeros(1,64);
+    
+    %Used for MAP part
+    prior_cheetah = data_rows_FG/(data_rows_FG + data_rows_BG);
+    prior_grass = data_rows_BG/(data_rows_BG+data_rows_FG);
+    
+    %%%%% Calculating mu_n_hat values %%%%
+    for i=1:64
+        for j=1:data_rows_FG
+            mu_n_hat_cheetah1(1,i) = mu_n_hat_cheetah1(1,i) + dataset_FG(j,i);
+        end
+        mu_n_hat_cheetah1(1,i) = mu_n_hat_cheetah1(1,i)/data_rows_FG;
+    end
+
+    for i=1:64
+        for j=1:data_rows_BG
+            mu_n_hat_grass1(1,i) = mu_n_hat_grass1(1,i) + dataset_BG(j,i);
+        end
+        mu_n_hat_grass1(1,i) = mu_n_hat_grass1(1,i)/data_rows_BG;
+    end
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%% STARTING LOOP FOR ALPHA %%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    for a=1:9
+        
+        
+        new_image = zeros(cheetah_rows, cheetah_cols); %Returned image
+    
+        %Values used for calculations%
+        sigma_1 = alpha(1,a)*diag(W0);
+        mu_n_cheetah1 = sigma_1 * inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*transpose(mu_n_hat_cheetah1) + 1/data_rows_FG*cheetah_covariances*inv(sigma_1+1/data_rows_FG*cheetah_covariances)*transpose(mu0_FG);
+        mu_n_grass1 = sigma_1 * inv(sigma_1 + 1/data_rows_BG*grass_covariances)*transpose(mu_n_hat_grass1) + 1/data_rows_BG*grass_covariances*inv(sigma_1+1/data_rows_BG*grass_covariances)*transpose(mu0_BG);
+
+        sigma_n_cheetah = sigma_1*inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*1/data_rows_FG*cheetah_covariances;
+        sigma_n_grass = sigma_1*inv(sigma_1 + 1/data_rows_BG*grass_covariances)*1/data_rows_BG*grass_covariances;
+
+        sigma_cheetah_total = cheetah_covariances + sigma_n_cheetah;
+        sigma_grass_total = grass_covariances + sigma_n_grass;
+        
+        %Multivariate Gaussian Distribution PDF functions for part a
+        fun_cheetah = @(x) 1/sqrt((det(sigma_cheetah_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_cheetah1)*inv(sigma_cheetah_total)*(x-mu_n_cheetah1));
+        fun_grass= @(x) 1/sqrt((det(sigma_grass_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_grass1)*inv(sigma_grass_total)*(x-mu_n_grass1));
+
+        %%%%%%%%%% Classifying %%%%%%%%%%%%
+        for i=1:cheetah_cols-7 %shift scan pointer over a column
+            for j=1:cheetah_rows-7
+
+                block = cheetah_img(j:7+j,i:7+i); %grab 8x8 block
+                block_dct = dct2(block);
+                zzblock_dct = transpose(zigzag(block_dct));
+
+                P_x_D_cheetah = fun_cheetah(zzblock_dct);
+                P_x_D_grass = fun_grass(zzblock_dct);
+                if P_x_D_cheetah * prior_cheetah > P_x_D_grass * prior_grass
+                    new_image(j:j,i:i) = 1;
+                end
+            end
+        end
+        f = figure() % Returning image per alpha
+        imagesc(new_image);
+        colormap(gray(255));
+        title(['Dataset: ', num2str(d),' - Alpha: ', num2str(alpha(1,a))])
+        saveas(f,[pwd,'/results/D_',num2str(d),'_A_',num2str(a),'.png']);
+        %%%%% Calculating percent error for part a Alpha values %%%%%
+        counter_correct = 0;
+        total_pixels = cheetah_rows*cheetah_cols;
+        for i=1:cheetah_rows
+            for j=1:cheetah_cols
+                if cheetah_mask(i,j) ==  new_image(i,j)
+                    counter_correct = counter_correct + 1;
+                end
+
+            end
+        end
+        percent_correct = counter_correct/total_pixels*100;
+        error_percentage = 100 - percent_correct;
+
+        alpha_values = [alpha_values log(alpha(1,a))];
+        error_percentages = [error_percentages error_percentage];
+    
+    end% END OF a=1:9 Still in d data set loop
+
+    f = figure() %plotting percent error vs alpha
+    plot(alpha_values, error_percentages);
+    ylim([floor(min(error_percentages))-0.1 ceil(max(error_percentages))+0.1])
+    
+    title(['Dataset: ', num2str(d), ' - Error Vs Log Alpha']);
+    saveas(f,[pwd,'/results/error_plot_D_',num2str(d),'.png']);
+    %%%%%%%%%%%%%%%%%%%%%%% Assignment 2 Method %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    % Starting loop of alphas for assignment 2 approach
+    %calculating MLE covariance matrix for cheetah
+    cheetah_covariances_MLE = zeros(64,64);
+    grass_covariances_MLE = zeros(64,64);
+    for i=1:64
+        p1 = cheetah_zigzag(i,:); %grab coefficient row
+        mu_1 = means_variance_cheetah(i,1,1);
+        for j=1:64
+            p2 = cheetah_zigzag(j,:); %grab coefficient row
+            mu_2 = means_variance_cheetah(j,1,1);
+            temp = 0;
+            for k=1:data_rows_FG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2); 
+            end
+            cheetah_covariances_MLE(i,j) = temp/(data_rows_FG-1);
+        end
+    end
+
+    %calculating covariance matrix for grass
+    for i=1:64
+        p1 = grass_zigzag(i,:); %grab coefficient row
+        mu_1 = means_variance_grass(i,1,1);
+        for j=1:64
+            p2 = grass_zigzag(j,:); %grab coefficient row
+            mu_2 = means_variance_grass(j,1,1);
+            temp = 0;
+            for k=1:data_rows_BG
+                temp = temp + (p1(1,k) - mu_1)*(p2(1,k) - mu_2); 
+            end
+            grass_covariances_MLE(i,j) = temp/(data_rows_BG-1);
+        end
+    end
+    alpha_values_Asn2 = []; %array of alpha values used for plotting
+    error_percentages_Asn2 = []; %array of error percentages per alpha used for plotting
+    for a=1:9
+        new_image2 = zeros(cheetah_rows, cheetah_cols);
+        fun_cheetah_Asn2 = @(x) 1/sqrt((det(cheetah_covariances_MLE)*(2*pi)^64))*exp(-1/2*transpose(x-means_variance_cheetah(:,:,1))*inv(cheetah_covariances_MLE)*(x-means_variance_cheetah(:,:,1)));
+        fun_grass_Asn2= @(x) 1/sqrt((det(grass_covariances_MLE)*(2*pi)^64))*exp(-1/2*transpose(x-means_variance_grass(:,:,1))*inv(grass_covariances_MLE)*(x-means_variance_grass(:,:,1)));
+        for i=1:cheetah_cols-7 %shift scan pointer over a column
+            for j=1:cheetah_rows-7
+                block = cheetah_img(j:7+j,i:7+i); %grab 8x8 block
+                block_dct = dct2(block);
+                zzblock_dct = transpose(zigzag(block_dct));
+
+                P_x_y_cheetah = fun_cheetah_Asn2(zzblock_dct);
+                P_x_y_grass = fun_grass_Asn2(zzblock_dct);
+                if P_x_y_cheetah * prior_cheetah > P_x_y_grass * prior_grass
+                        new_image2(j:j,i:i) = 1;
+                end
+            end
+        end
+
+
+        %Calculating percent error of assignment 2 method
+        counter_correct_Asn2 = 0;
+        total_pixels = cheetah_rows*cheetah_cols;
+        for i=1:cheetah_rows
+            for j=1:cheetah_cols
+                if cheetah_mask(i,j) ==  new_image2(i,j)
+                    counter_correct_Asn2 = counter_correct_Asn2 + 1;
+                end
+
+            end
+        end
+        percent_correct_Asn2 = counter_correct_Asn2/total_pixels*100;
+        error_percentage_Asn2 = 100 - percent_correct_Asn2;
+        
+        alpha_values_Asn2 = [alpha_values_Asn2 log(alpha(1,a))];
+        error_percentages_Asn2 = [error_percentages_Asn2 error_percentage_Asn2];
+    end%END OF a=1:9 for Assignment 2 MLE method
+    
+    f = figure() %plotting assignment 2 method (1 per data set just plotting last one they're all the same)
+    imagesc(new_image2);      %as I'm not multiplying covariace by alpha for this part only using MLE
+    colormap(gray(255));      %percent error chart should be a horizontal line
+    title(['Dataset: ', num2str(d), ' - Assignment 2 Method'])
+    saveas(f,[pwd,'/results/Asn2_D_',num2str(d),'.png']);
+    
+    f = figure() %plotting percent error vs alpha (should only be 4 of these)
+    plot(alpha_values_Asn2, error_percentages_Asn2);
+    ylim([floor(min(error_percentages_Asn2))-0.1 ceil(max(error_percentages_Asn2))+0.1])
+    title(['Asn2 Approach - Dataset: ', num2str(d), ' - Error Vs Log Alpha']);
+    saveas(f,[pwd,'/results/error_plot_Asn2_D_',num2str(d),'.png']);
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%% MAP APPROACH %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    alpha_values = []; %Stores alpha values for plotting
+    error_percentages = []; %Stores error percentage per alpha
+
+    %Same stuff except using MAP for mu
+    for a=1:9
+        new_image = zeros(cheetah_rows, cheetah_cols);
+
+        sigma_1 = alpha(1,a)*diag(W0);
+        
+        mu_n_cheetah1 = sigma_1 * inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*transpose(mu_n_hat_cheetah1) + 1/data_rows_FG*cheetah_covariances*inv(sigma_1+1/data_rows_FG*cheetah_covariances)*transpose(mu0_FG);
+        mu_n_grass1 = sigma_1 * inv(sigma_1 + 1/data_rows_BG*grass_covariances)*transpose(mu_n_hat_grass1) + 1/data_rows_BG*grass_covariances*inv(sigma_1+1/data_rows_BG*grass_covariances)*transpose(mu0_BG);;
+
+        %sigma_n_cheetah = sigma_1*inv(sigma_1 + 1/data_rows_FG*cheetah_covariances)*1/data_rows_FG*cheetah_covariances;
+        %sigma_n_grass = sigma_1*inv(sigma_1 + 1/data_rows_BG*grass_covariances)*1/data_rows_BG*grass_covariances;
+        
+        sigma_n_cheetah = 0;
+        sigma_n_grass = 0;
+        
+        sigma_cheetah_total = cheetah_covariances + sigma_n_cheetah;
+        sigma_grass_total = grass_covariances + sigma_n_grass;
+
+        fun_cheetah_D1c = @(x) 1/sqrt((det(sigma_cheetah_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_cheetah1)*inv(sigma_cheetah_total)*(x-mu_n_cheetah1));
+        fun_grass_D1c= @(x) 1/sqrt((det(sigma_grass_total)*(2*pi)^64))*exp(-1/2*transpose(x-mu_n_grass1)*inv(sigma_grass_total)*(x-mu_n_grass1));
+        for i=1:cheetah_cols-7 %shift scan pointer over a column
+            for j=1:cheetah_rows-7
+
+                block = cheetah_img(j:7+j,i:7+i); %grab 8x8 block
+                block_dct = dct2(block);
+                zzblock_dct = transpose(zigzag(block_dct));
+
+                P_x_D_cheetah = fun_cheetah_D1c(zzblock_dct);
+                P_x_D_grass = fun_grass_D1c(zzblock_dct);
+
+                if P_x_D_cheetah * prior_cheetah > P_x_D_grass * prior_grass
+                    new_image(j:j,i:i) = 1;
+                end
+            end
+        end
+        f = figure()%Plotting per alpha for MAP approach
+        imagesc(new_image);
+        colormap(gray(255));
+        title(['Dataset: ', num2str(d), ' - MAP Approach - Alpha: ', num2str(alpha(1,a))])
+        saveas(f,[pwd,'/results/MAP_D_',num2str(d),'_A_',num2str(a),'.png']);
+        %Calculating percent error for alpha and MAP approach
+        counter_correct = 0;
+        total_pixels = cheetah_rows*cheetah_cols;
+        for i=1:cheetah_rows
+            for j=1:cheetah_cols
+                if cheetah_mask(i,j) ==  new_image(i,j)
+                    counter_correct = counter_correct + 1;
+                end
+
+            end
+        end
+        percent_correct = counter_correct/total_pixels*100;
+        error_percentage = 100 - percent_correct;
+
+        alpha_values = [alpha_values log(alpha(1,a))];
+        error_percentages = [error_percentages error_percentage];
+    end
+
+    f = figure()%Potting percent error vs alpha values for MAP
+    plot(alpha_values, error_percentages);
+    ylim([floor(min(error_percentages))-0.1 ceil(max(error_percentages))+0.1])
+    title(['Dataset: ', num2str(d), '- MAP Approach', ' - Error Vs Log Alpha']);
+    saveas(f,[pwd,'/results/error_MAP_D',num2str(d),'.png']);
+end
+##### SOURCE END #####
+--></body></html>

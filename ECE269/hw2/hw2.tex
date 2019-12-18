@@ -1,0 +1,264 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\begin{document}
+\title{ECE 269 Homework 2}
+\author{Joseph Bell}
+\date{October 22, 2019}
+\maketitle
+\textbf{Problem 1}
+\newline
+\textbf{a)}
+\newline
+The matrix T will be of the form:
+\newline
+\newline
+$\left(\begin{array}{ccccc} h(0) & 0 & 0 & 0& 0  \\ h(1) & h(0) & 0 & 0 & 0  \\ h(2) & h(1) & h(0) & 0 & 0 \\ h(3) & h(2) & h(1) & h(0) & 0 \\ ... & h(3) & h(2) & h(1) & h(0) \\ h(N) & h(N-1) & ... & ... & ... \\ 0 & h(N) & h(N-1) & ... & ...  \end{array}\right)$
+\newline
+\newline
+\textbf{b)}
+\newline
+The elements for each diagonal of matrix T all have the same value. This structure can be represented by the formula that $T_{i,j} = T_{i+1,j+1}$.
+\newline
+\textbf{Problem 2}
+\newline
+\textbf{a)}
+\newline
+$f(\alpha x + \beta y) = A (\alpha x + \beta y) + b$
+\newline
+$= A \alpha x + A \beta y + b$
+\newline
+$= A \alpha x + A \beta y + (\alpha + \beta)b$
+\newline
+$= A \alpha x + A \beta y + \alpha b + \beta b$
+$= \alpha (Ax + b) + \beta(Ay + b),$ which is equivalent to: $\alpha f(x) + \beta f(y)$
+\newline
+\newline
+\textbf{b)}
+\newline
+First, I need to prove that g(x) is linear.
+\newline
+$g(\alpha x) = f(\alpha x) - f(0)$
+\newline
+$= f(\alpha x + \beta 0) - f(0)$ using the fact that f(x) is affine one obtains:
+\newline
+$= \alpha f(x) + \beta f(0) - f(0)$
+\newline
+$= \alpha f(x) + (1-\alpha)f(0) - f(0)$
+\newline
+$= \alpha f(x) + f(0) - \alpha f(0) - f(0)$
+\newline
+$= \alpha f(x) - \alpha f(0)$
+\newline
+$= \alpha (f(x) - f(0)) = \alpha g(x)$
+\newline
+\newline
+\textbf{Therefore, $g(\alpha x) = \alpha g(x)$} 
+\newline
+$g(x + y) = f(x + y) - f(0)$
+$= f(\frac{1}{2} \cdot 2x + \frac{1}{2} \cdot 2y) - \frac{1}{2} \cdot 2 \cdot f(0)$
+\newline
+$= \frac{1}{2} \cdot f(2x) + \frac{1}{2} \cdot f(2y) - \frac{1}{2} \cdot 2 \cdot f(0)$
+\newline
+$= \frac{1}{2} \cdot (f(2x) - f(0)) + \frac{1}{2} \cdot (f(2y)- f(0)) $
+\newline
+$= \frac{1}{2} \cdot g(2x) + \frac{1}{2} \cdot g(2y) $
+\newline
+Then, using the previously proven fact that $g(\alpha x) = \alpha g(x)$:
+\newline
+$= \frac{1}{2} \cdot g(2x) + \frac{1}{2} \cdot g(2y) = g(x) + g(y) $
+\newline
+\textbf{Therefore, $g(x + y) = g(x) + g(y)$} and ultimately g(x) is \textbf{linear}
+\newline
+This means that g(x) can be represented in the form g(x) = Ax.
+\newline
+Therefore, f(x) = Ax + f(0).
+\newline
+Representing f(0) as b, one obtains \textbf{f(x) = Ax + b}
+\newline
+\newline
+\textbf{Problem 3}
+\newline
+\textbf{a)}
+\newline
+Counter example:
+\newline
+$\left(\begin{array}{cc} 1 & 0  \\ 0 & 0  \end{array}\right)$  *
+$\left(\begin{array}{cc} 0 & 0  \\ 3 & 4\end{array}\right)$ =
+$\left(\begin{array}{cc} 0 & 0  \\ 0 & 0\end{array}\right)$
+\newline
+\textbf{b)}
+\newline
+Counter example:
+\newline
+$\left(\begin{array}{cc} 0 & 1  \\ 0 & 0  \end{array}\right)$  *
+$\left(\begin{array}{cc} 0 & 1  \\ 0 & 0\end{array}\right)$ =
+$\left(\begin{array}{cc} 0 & 0  \\ 0 & 0\end{array}\right)$
+\newline
+\textbf{c)}
+\newline
+If $A^{T}A = 0$ then it must be true that $trace(A^{T}A) = 0$ which in sigma notation is $\sum^{n}_{i=1} [A^{T}A]_{ii} = 0$. Since $A^{T}_{ji} = A_{ij}$ the sigma notation can be converted to $\sum^{n}_{i,j=1} A_{ij}*A_{ij} = 0$.
+\newline
+This summation is the sum of squares of each index value, and for each sum of squares to be equal to 0 the individual elements MUST be equal to 0. Therefore, A is equal to 0.
+\newline
+\newline
+\textbf{Problem 4}
+\newline
+\textbf{a)}
+\newline
+Let $x = a_{0} + a_{1}x + a_{2}x^{2} + ... a_{n}x^{n}$
+\newline
+Let $y = b_{0} + b_{1}y + b_{2}y^{2} + ... b_{n}y^{n}$
+\newline
+Then, T(x) = $a_{1} +2a_{2}x + ... na_{n}x^{n-1}$ and
+T(y) = $b_{1} +2b_{2}y + ... nb_{n}y^{n-1}$
+\newline
+T(x+y) = $T(a_{0} + a_{1}x + a_{2}x^{2} + ... a_{n}x^{n} + b_{0} + b_{1}y + b_{2}y^{2} + ... b_{n}y^{n})$ = 
+\newline
+$a_{1} +2a_{2}x + ... na_{n}x^{n-1} + b_{1} +2b_{2}y + ... nb_{n}y^{n-1}$ which is equivalent to T(x) + T(y).
+\newline
+T($\alpha x$) = T($\alpha (a_{0} + a_{1}x + a_{2}x^{2} + ... a_{n}x^{n})$)
+\newline
+This equals $\alpha a_{1} +\alpha 2a_{2}x + ... \alpha na_{n}x^{n-1}$
+\newline
+$\alpha$T(x) = $\alpha T(a_{0} + a_{1}x + a_{2}x^{2} + ... a_{n}x^{n}) = \alpha (a_{1} +2a_{2}x + ... na_{n}x^{n-1}) = \alpha a_{1} +\alpha 2a_{2}x + ... \alpha na_{n}x^{n-1}$
+\newline
+Therefore, T(x+y) = T(x) + T(y) and T($\alpha$x) = $\alpha$ T(x) which proves T is linear.
+\newline
+\newline
+\textbf{b)}
+\newline
+$\frac{d(1)}{dx} = 0$ so the basis vector is an n*1 vector of $\left(\begin{array}{c} 0  \\ 0 \\ 0 \\ 0 \\ ... \\ 0  \end{array}\right)$ 
+\newline
+\newline
+$\frac{d(x)}{dx} = 1$ so the basis vector is an n*1 vector of $\left(\begin{array}{c} 1  \\ 0 \\ 0 \\ 0 \\ ... \\ 0  \end{array}\right)$ 
+\newline
+\newline
+$\frac{d(x^{2})}{dx} = 2x$ so the basis vector is an n*1 vector of $\left(\begin{array}{c} 0 \\ 2 \\ 0 \\ 0 \\ ... \\ 0  \end{array}\right)$ 
+\newline
+\newline
+$\frac{d(x^{3})}{dx} = 3x^{2}$ so the basis vector is an n*1 vector of $\left(\begin{array}{c} 0  \\ 0 \\ 3 \\ 0 \\ ... \\ 0  \end{array}\right)$ 
+\newline
+\newline
+$\frac{d(x^{4})}{dx} = 4x^{3}$ so the basis vector is an n*1 vector of $\left(\begin{array}{c} 0  \\ 0 \\ 0 \\ 4 \\ ... \\ 0  \end{array}\right)$ 
+\newline
+This trend continues all the way to $\frac{d(x^{n})}{dx} = nx^{n-1}$ with the n*1 basis vector of $\left(\begin{array}{c} 0  \\ 0 \\ 0 \\ 0 \\ ... \\ n \\ 0  \end{array}\right)$ 
+\newline
+Stacking these columns together to form the transformation matrix one obtains: $\left(\begin{array}{ccccccc} 0&1&0&0&0&0&0  \\ 0&0&2&0&0&0&0 \\ 0&0&0&3&0&0&0 \\ 0&0&0&0&4&0&0 \\ .&.&.&.&.&.&. \\ 0&0&0&0&0&0&n \\ 0&0&0&0&0&0&0 \end{array}\right)$ 
+\newline
+This results in an (n+1)*(n+1) matrix with a rank of n. The first column is the only zero column. The rest of the columns continue with the pattern of $A_{i+1,j+1} = A_{i,j} + 1$ starting with $A_{1,2}$ up to $A_{n,n+1}$
+\newline
+\newline
+\textbf{Problem 5}
+\newline
+\textbf{a)}
+\newline
+Let $x \in N(A)$ and $x \in R(A^{T})$. This means $x \in N(A) \cap R(A^{T})$ and that $Ax = 0$ and $x = Ay$ for some y.
+\newline
+Then, $x^{T}x = (A^{T}y)^{T}x$ which be can rearranged to the form $^{T}x = y^{T}Ax$ and since x is in the null space of A: $x^{T}x = y^{T}Ax = 0$ which means $\Sigma (x_{i})^{2} = 0$ and therefore, x = $\{0\}$.
+\newline
+Using the general equation 4.5.1 from the text that states: $rank(AB)= rank(B)- dimN(A) \cap R(B)$ I can input A and $A^{T}$ s.t. $rank(AA^{T})= rank(A^{T})- dimN(A) \cap R(A^{T})$
+\newline
+Then , since $dimN(A) \cap R(A^{T}) = 0$ it can be concluded that $rank(AA^{T}) = rank(A^{T})$
+\newline
+Next, to show that $rank(AA^{T}) = rank(A)$ one must show that $rank(A^{T}) = rank(A)$ which is shown by the following proof:
+\newline
+To show that $dim(R(A^{T})) \leq dim(R(A)) $ I construct a basis for $R(A^{T})$ and let $dim(R(A^{T})) = k$. The basis for $R(A^{T})$ is displayed as $\{x_{1}, x_{2}, ... x_{k} \}$.
+\newline
+If one were to multiply the basis by A, one obtains $\{Ax_{1}, Ax_{2}, ... Ax_{k} \}$ which is in $R(A)$. Next, suppose that $\Sigma c_{i}Ax_{i} = 0 $. This can be rearranged to the form $A \Sigma c_{i}x_{i} = 0 $, which represents $\Sigma c_{i}x_{i}$ to be in the null space of A. 
+\newline
+Let $v = \Sigma c_{i}x_{i}$. Since v belongs to the null space of A and the range space of $A^{T}$ one can conclude that v could be the 0 vector. Now, one must show that the only vector that v could be equal to is the 0 vector.
+\newline
+Suppose some vector b is in the null space of A, then $Ab=0$. This must also be true for v since it is in the null space of A, so $Av=0$. Representing A as $\left(\begin{array}{c} (a_{1})^{T}  \\ (a_{2})^{T}  \\ ... \\ (a_{m})^{T} \end{array}\right)$ where $(a_{i})^{T}$ is a row vector - it can be represented that $(a_{1})^{T}v + (a_{2})^{T}v + ... (a_{m})^{T}v=0$
+\newline
+Using the fact that $v \in R(A^{T})$ one can conclude that $v^{T}v = 0$ by the following:
+\newline
+Let $v = \Sigma c_{i}a_{i}$  and $v \cdot \Sigma (a_{i})^{T} = 0$ for $R(A^{T})$ and $N(A)$ respectively. Then, $v^{T}v = (\Sigma c_{i}a_{i})^{T} \cdot \Sigma c_{i}a_{i}$ which can be rearranged to the form $\Sigma (c_{i})^{T} \cdot \Sigma (a_{i})^{T} \cdot v$. The last two terms, as shown before, represent the null space of A. Therefore, $v^{T}v = 0$ which is equivalent to $\Sigma (v_{i})^{2} = 0$. Therefore, v = 0.
+\newline
+Therefore, since $v = \Sigma c_{i}x_{i} = 0$, and x is a basis it must follow that all values of c equal 0 and Ax forms a basis for R(A). This means k is less than or equal to dim(R(A)) = rank(A). However, to prove that k = rank(A) let b = $a^{T}$ and substitute. 
+\newline
+This results in $dim(R(b^{T})) \leq dim((R(b))$ 
+\newline
+$dim(R(A)) \leq dim(A^{T})$
+Therefore, Rank(A) $\leq$ k and since this finally results in k $\leq$ Rank(A) $\leq$ k it must be that Rank(A) = k = Rank($A^{T}$).
+\newline
+FINALLY, since Rank(A) = Rank($A^{T}$) and Rank($A^{T}$) = Rank($AA^{T}$) it can be concluded that \textbf{Rank(A) = Rank($AA^{T}$)} .
+\newline
+\textbf{b)}
+\newline
+COUNTER EXAMPLE:
+\newline
+Given A = $\left(\begin{array}{cc} i&1  \\ 0&0 \end{array}\right)$ and $A^{T}$ = $\left(\begin{array}{cc} i&0  \\ 1&0 \end{array}\right)$. It follows that that $AA^{T}$ = $\left(\begin{array}{cc} 0&0  \\ 0&0 \end{array}\right)$. Therefore, rank(A) = 1 and rank($AA^{T}$) = 0
+\newline
+\newline
+\textbf{c)}
+\newline
+Same as part a except substitute $A^{H}$ for $A^{T}$. Also, it can be shown that since $A^{H} = A$ then the equation $Rank(AA^{H}) = rank(A^{H} - N(A) \cap R(A^{H})$ can be rewritten as $Rank(AA) = rank(A) - N(A) \cap R(A)$ and since the only vector in the range and null space of a matrix is the 0 vector - Rank(AA) = Rank(A) = Rank(A$A^{H}$)
+\newline
+\textbf{Problem 6}
+\newline
+\textbf{a)}
+\newline
+Since matrix A is full rank and tall it's rank must be equal to n. Using the equation that $rank(A) = n - dim(N(A)))$ it must then be true that $dim(N(A)) = 0$
+\newline
+Let $x \in N(A^{T}A)$ and assume $x \neq 0$
+\newline
+If we have $A^{T}A \cdot x = 0$ it must be true that $A^{T}A$ is singular as multiplying by the inverse would result in $x = 0$.
+\newline
+Then, $x^{T}A^{T}Ax = 0$ which can be simplified to $(Ax)^{T}Ax = 0$ which is simplified more to $||Ax||^{2} = 0$ which concludes that $Ax = 0$.
+\newline
+Therefore, x is in the null space of A. However, since A is full rank the null space must be equal to 0. So reverting back to the beginning, if x is equal to 0 in the equation $A^{T}A \cdot x = 0$ it must be true that $A^{T}A$ is non-singular.
+\newline
+\textbf{b)}
+\newline
+If $A \in R^{m \times n}$ then $A^{T} \cdot A$ is a square matrix of $n \times n$. Since A has rank n, $A^{T} \cdot A$ also has rank n (proven in problem 5). Therefore, $A^{T} \cdot A$ is a non-singular matrix.
+\newline
+Since $A^{T} A$ is non-singular then  $(A^{T} A)^{-1} \cdot (A^{T} A)= I$ where I is the identity matrix. This can be simplified to $(A^{T} A)^{-1} A^{T}(A)= I$
+\newline
+Therefore, $(A^{T}A)^{-1} A^{T}$ is a left inverse of A.
+\newline
+\textbf{c)}
+\newline
+It does not have a unique left inverse.
+\newline
+COUNTER EXAMPLE: Let A = $\left(\begin{array}{ccc} 1 & 0 & 0  \\ 0 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{array}\right)$
+\newline
+\newline
+Both matrices $\left(\begin{array}{cccc} 1 & 0 & 0 & 0  \\ 0 & 1/2 & 0 & 0 \\ 0 &  0 & 0 & 1 \end{array}\right)$ and  $\left(\begin{array}{cccc} 1 & 0 & 0 & 0  \\ 0 & 0 & 1 & 0 \\ 0 &  0& 0 & 1 \end{array}\right)$ when multiplied on the left side of A result in the identity matrix of  
+\newline
+$\left(\begin{array}{ccc} 1 & 0 & 0   \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array}\right)$
+\newline
+\textbf{d)}
+\newline
+Since A is full rank and fat it follows that rank(A) = m. Therefore, using the equation that $rank(A) = m - dim(N(A^{T}))$ it follows that $dim(N(A^{T})) = 0$
+\newline
+Let $x \in N(AA^{T})$ and assume $x \neq 0$
+\newline
+If we have $AA^{T} \cdot x = 0$ it must be true that $AA^{T}$ is singular as multiplying by the inverse would result in $x = 0$.
+\newline
+Then, $x^{T}AA^{T} \cdot x = 0$
+\newline
+This is equivalent to $(A^{T}x)^{T} \cdot A^{T}x = 0$ which is equivalent to $||A^{T}x||^{2} = 0$ and therefore, $A^{T}x = 0$
+\newline
+Therefore, $x \in N(A^{T})$ and x must be equal to 0. That means $AA^{T}$ is non-singular.
+\newline
+\textbf{e)}
+\newline
+If $A \in R^{m \times n}$ then $A \cdot A^{T}$ is a square matrix of $m \times m$. Since A has rank m, $A \cdot A^{T}$ also has rank m (proven in problem 5). Therefore, $A \cdot A^{T}$ is a non-singular matrix.
+\newline
+Since $AA^{T}$ is non-singular then  $(AA^{T}) \cdot (A A^{T})^{-1}= I$ where I is the identity matrix. This can be simplified to $(A)A^{T} (AA^{T})^{-1}= I$
+\newline
+Therefore, $A^{T} (AA^{T})^{-1}$ is a right inverse of A.
+\newline
+\textbf{f)}
+\newline
+It does not have a unique right inverse.
+\newline
+COUNTER EXAMPLE: Let A = Let A = $\left(\begin{array}{cccc} 1 & 0 & 0 & 0 \\ 0 & 2 & 2 & 1\\ 0 & 0 & 0 & 1 \\ \end{array}\right)$
+Both matrices $\left(\begin{array}{ccc} 1 & 0 & 0   \\ 0 & 1/2 & 0  \\ 0 &  0 & 0 \\ 0 & 0 & 1 \end{array}\right)$ and  $\left(\begin{array}{ccc} 1 & 0 & 0   \\ 0 & 0 & 0  \\ 0 &  1/2 & 0 \\ 0 & 0 & 1 \end{array}\right)$ when multiplied on the right side of A 
+\newline
+result in the identity matrix of  
+$\left(\begin{array}{cccc} 1 & 0 & 0    \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array}\right)$
+\newline
+\end{document}

@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\begin{document}
+\title{ECE 269 Homework 4}
+\author{Joseph Bell}
+\date{November 21, 2019}
+\maketitle
+\textbf{Problem 1}
+\newline
+\textbf{a)}
+\newline
+Assuming there are two pseudoinverses of A, $A^{+} and B^{+}$ s.t. $A^{+} = A^{+}AA^{+}$, $B^{+} = B^{+}AB^{+}$, $A = AA^{+}A$, and $A = AB^{+}A$, then: \newline
+$A^{+} = A^{+}(AB^{+}A)A^{+}$\newline
+$A^{+} = (A^{+}AB^{+})AA^{+}$\newline
+$A^{+} = A^{+}AB^{+}$\newline
+Therefore, since $A^{+} = A^{+}AA^{+}$ one can conclude that $A^{+} = B^{+}$ which proves the pseudoinverse of A is unique.
+\newline
+\textbf{b)}
+\newline
+If $A \in R^{mxn}$ s.t. $m>n$ and rank is n, then $A^{T}A$ is full rank and square (i.e. non-singular).\newline
+$(A^{T}A)^{-1}(A^{T}A) = I$\newline
+Can be rearranged to the form: $((A^{T}A)^{-1}A^{T})A = I$
+\newline
+\textbf{c)}
+\newline
+If $A \in R^{mxn}$ s.t. $n>m$ and rank is m, then $AA^{T}$ is full rank and square (i.e. non-singular).\newline
+\newline
+$(AA^{T})(AA^{T})^{-1} = I$\newline
+Can be rearranged to the form: $A(A^{T}(AA^{T})^{-1}) = I$
+\newline
+\textbf{d)}
+\newline
+$AA^{-1}A = AI = A \checkmark $\newline
+$A^{-1}AA^{-1} = IA^{-1} = A^{-1} \checkmark $
+\newline
+\textbf{e)}
+\newline
+$AAA = AA = A \checkmark $\newline
+$AAA = AA = A \checkmark $
+\newline
+\textbf{f)}
+\newline
+$(A^{T})^{+} = (A^{T})^{+}A^{T}(A^{T})^{+}$ \newline
+If $A = AA^{+}A$, then $A^{T}=A^{T}(A^{+})^{T}A^{T}$\newline
+Substituting $A^{T}$ into the first equation results in:\newline
+$(A^{T})^{+} = (A^{T})^{+}A^{T}(A^{+})^{T}A^{T}(A^{T})^{+}$ and then the first three terms must be equal to $(A^{T})^{+}$, so one obtains:\newline
+$(A^{T})^{+} = (A^{T})^{+}A^{T}(A^{+})^{T}$ and since $(A^{T})^{+} = (A^{T})^{+}A^{T}(A^{T})^{+}$ one \newline can conclude that: 
+$(A^{T})^{+} = (A^{+})^{T}$
+\newline
+\textbf{g)}
+\newline
+To show that the pseudoinverse is distributive in the same way that the transpose is:\newline
+$A = AA^{+}A$ and taking the pseudo-inverse of A results in:\newline
+$A^{+} = (AA^{+}A)^{+}$ and also since $A^{+} = A^{+}AA^{+}$\newline 
+Then $(AA^{+}A)^{+} = A^{+}AA^{+}$, which shows that the pseudoinverse is distributive in the same way that the transpose is.\newline
+Therefore, $(AA^{T})^{+} = (A^{+})^{T}A^{+}$ and $(A^{T}A)^{+} = A^{+}(A^{+})^{T}$
+\newline
+\textbf{h)}
+\newline
+If $R(A^{+}) = R(A^{T})$ then the pseudoinverse must be perpendicular to the null space of the A.\newline
+$Ax = 0$ s.t. x is in the null space of A\newline
+$c = A^{+}d$ s.t. c is in the range space of $A^{+}$\newline
+Then, $c^{T}x$ must equal 0.\newline
+$c^{T}x = (A^{+}d)^{T}x = d^{T}(A^{+})^{T}x = d^{T}(A^{+}AA^{+})^{T}x = d^{T}(A^{+})^{T}(A^{+}A)^{T}x = d^{T}(A^{+})^{T}A^{+}Ax = 0 \checkmark$ \newline
+If $N(A^{+}) = N(A^{T})$ then $N(A^{+})$ must be perpendicular to the range space of A.\newline
+$A^{+}x = 0$ s.t. x is in the null space of $A^{+}$\newline
+$c = Ad$ s.t. c is in the range space of $A$
+\newline
+Then, $c^{T}x$ must equal 0.\newline
+$(Ad)^{T}x = d^{T}A^{T}x = d^{T}A^{T}(A^{T})^{+}A^{T}x = d^{T}A^{T}(AA^{+})^{T}x = d^{T}A^{T}AA^{+}x = 0 \checkmark$
+\newline
+\textbf{i)}
+\newline
+$P = AA^{+}$ \newline
+$PP = AA^{+}AA^{+} = A(A^{+}AA^{+}) = AA^{+}$ \newline
+$P^{T} = (AA^{+})^{T} = AA^{+}$ (problem states $AA^{+}$ is symmetric)
+\newline
+\newline
+$Q = A^{+}A$
+\newline
+$QQ = A^{+}AA^{+}A = (A^{+}AA^{+})A = A^{+}A$
+\newline
+$Q^{T} = (A^{+}A)^{T} = A^{+}A$ (problem states $A^{+}A$ is symmetric)
+\newline
+\textbf{j)}
+\newline
+If $y = Px$ is the projection of x onto R(A) then:\newline
+$[x - Px]^{T} A = 0$\newline
+$[x - AA^{+}x]^{T}A = 0$
+$[x^{T} - x^{T}(A^{+})^{T}A^{T}]A = 0$\newline
+$x^{T}A - x^{T}(A^{+})^{T}A^{T}A = 0$\newline
+$x^{T}A - x^{T}(AA^{+})^{T}A = 0$\newline
+$x^{T}A - x^{T}AA^{+}A = 0$\newline
+$x^{T}A - x^{T}A = 0 \checkmark$
+\newline
+\textbf{k)}
+\newline
+The least squares solution must be the solution to $A^{T}Ax = A^{T}b$\newline
+$A^{T}AA^{+}b = A^{T}b$\newline
+$A^{T}AA^{+}b = A^{T}b$\newline
+$(AA^{+}A)^{T}AA^{+}b = A^{T}b$\newline
+$A^{T}(A^{+})^{T}A^{T}AA^{+}b = A^{T}b$\newline
+Then using the symmetric rule of $AA^{+}$ \newline
+$A^{T}(A^{+})^{T}A^{T}(AA^{+})^{T}b = A^{T}b$\newline
+$A^{T}(A^{+})^{T}A^{T}(A^{+})^{T}A^{T}b = A^{T}b$\newline
+$A^{T}(A^{+})^{T}A^{T}b = A^{T}b$\newline
+$A^{T}b = A^{T}b \checkmark$\newline
+\newline
+\textbf{l)}
+\newline
+Using the fact that the norm solution must satisfy $x^{*} = A^{T}z$ and $AA^{T}z = b$.\newline
+It follows that $z = (AA^{T})^{-1}b$\newline
+$x^{*} = A^{T}(AA^{T})^{-1}b$ which is equivalent to $x^{*} = A^{+}b$ as proven earlier in problem 1.
+\newline
+\textbf{Problem 2}
+\newline
+\textbf{a)}
+\newline
+Since the eigenvalues are the roots of the polynomial equation $det(A - \lambda I)$, one obtains:\newline
+$(\lambda_{1} - \lambda)(\lambda_{2} - \lambda)(\lambda_{3} - \lambda)...(\lambda_{n} - \lambda)$ \newline
+When $\lambda = 0$ one obtains $det(A - 0 \cdot I) = det(A)= (\lambda_{1} - 0)(\lambda_{2} - 0)(\lambda_{3} - 0)...(\lambda_{n} - 0)$ which simplifies to $\lambda_{1} \cdot \lambda_{2} \cdot \lambda_{3} \cdot ... \lambda_{n}$ 
+\newline
+\textbf{b)}
+\newline
+Since $det(A) = det(A^{T})$ (We were shown this in discussion) \newline
+$det(A) = det((A - \lambda I)^{T}) = det(A^{T} - \lambda I)$. The determinants being equal ultimately means the characteristic equations are the same (since determinant results in characteristic equation). Since the characteristic equation is the same then the roots of the equations are the same, and the eigenvalues are the roots of the characteristic equation.
+\newline
+\textbf{c)}
+\newline
+$|A_{1} \cdot A_{2} ... \cdot A_{n}| = |A_{1}| \cdot |A_{2}| ... \cdot |A_{n}|$\newline
+Since $|A| = \lambda_{1} \cdot \lambda_{2} \cdot \lambda_{3} \cdot ... \lambda_{n}$:\newline
+$|A|^{k} = (\lambda_{1} \cdot \lambda_{2} \cdot \lambda_{3} \cdot ... \lambda_{n})^{k} = (\lambda_{1} \cdot \lambda_{2} \cdot \lambda_{3} \cdot ... \lambda_{n})_{1} \cdot (\lambda_{1} \cdot \lambda_{2} \cdot \lambda_{3} \cdot ... \lambda_{n})_{2} ... (\lambda_{1} \cdot \lambda_{2} \cdot \lambda_{3} \cdot ... \lambda_{n})_{k}$\newline
+Then by associative rule of multiplication this can be rearranged into: \newline
+$\lambda_{1}^{k} \cdot \lambda_{2}^{k} \cdot ... \lambda_{n}^{k}$\newline
+\textbf{d)}
+\newline
+$Av = \lambda v$, if $\lambda = 0$ then $Av = 0$\newline
+Since $v \neq 0$ A can not be invertible. This means that if $\lambda = 0$ A is not invertible - in other words A is invertible iff $\lambda \neq 0$
+\newline
+\textbf{e)}
+\newline
+$Av = \lambda v$
+\newline
+$A^{-1}Av = A^{-1}\lambda v$\newline
+$Iv = A^{-1}\lambda v$\newline
+$v = A^{-1}\lambda v$\newline
+$v = \lambda A^{-1}v$\newline
+$v = \lambda A^{-1}v$\newline
+$\lambda^{-1}v =  A^{-1}v$\newline
+Therefore, the eigenvalues of $A^{-1}$ are $\lambda^{-1}$
+\newline
+\textbf{f)}
+\newline
+$Av = \lambda v$ and let $B = T^{-1}AT$ which can be solved for A: $A = TBT^{-1}$\newline
+Then: $TBT^{-1}v = \lambda v$ \newline
+$BT^{-1}v = T^{-1}\lambda v$ \newline
+$B(T^{-1}v) = \lambda (T^{-1}v)$\newline
+$Bv^{'} = \lambda v^{'}$\newline
+Therefore, the eigenvalues are the same but the eigenvectors are in the form $v^{'} = T^{-1}v$
+\newline
+\textbf{Problem 3}
+\newline
+\textbf{a)}
+\newline
+Using $Av = \lambda v$ and combining with Schur's triangularization - since A is a square matrix it can be triangularized s.t. $A = UTU^{H}$.\newline
+It then follows that $UTU^{H}v = \lambda v$ which can be rearranged to: $TU^{H}v = \lambda U^{H}v$.\newline
+This shows that the eigenvalues of A can be solved for by finding the eigenvalues of T that correspond to these transformed eigenvectors. \newline
+Since from lecture we know that the determinant of an upper triangular matrix is equal to the product of all it's diagonal elements - it follows that the determinant of $T - \lambda I$ is equivalent to the product of $t_{ii} - \lambda$ for every value i. This then proves that the diagonal elements of the matrix T are the eigenvalues!\newline
+Therefore, the trace of T is equivalent to the sum of the eigenvalues.
+\newline
+Next, $trace(A) = trace(UTU^{H}) = trace(U(TU^{H})) = trace(UU^{H}T) = trace(IT) = trace(T)$.\newline
+Therefore, trace(A) is equivalent to the sum of it's eigenvalues.
+\newline
+\textbf{b)}
+\newline
+Since it was proven in 2c that the eigenvalues of $A^{k}$ are $\lambda_{1}^{k}, \lambda_{2}^{k} \lambda_{3}^{k}, ... \lambda_{n}^{k}$ and it was proven above that $trace(A) = \lambda_{1} + \lambda_{2} + \lambda_{3} + ... \lambda_{n}$\newline
+it follows that $trace(A^{k}) = \lambda_{1}^{k} + \lambda_{2}^{k} + \lambda_{3}^{k} + ... \lambda_{n}^{k}$
+\newline
+\textbf{Problem 4}
+\newline
+Using the property that the Frobenius Norm is equivalent to $trace(A^{H}A)$ from section 5.2 of the textbook:\newline
+$\Sigma |A_{ij}|^{2} = trace(A^{H}A) = trace(UT^{H}U^{H}UTU^{H} = trace(UT^{H}ITU^{H}) = trace(UT^{H}TU^{H} = trace(T^{H}UU^{H}T) = trace(T^{H}IT) = trace(T^{H}T)$\newline
+Since T is an upper triangular matrix it can be rewritten as the sum of a diagonal matrix of eigenvalues $\Lambda$(since the trace of T is the sum of eigenvalues) and a STRICTLY upper diagonal matrix (0s along the diagonal) which I'll call X.
+\newline
+So, $trace(T^{H}T) = trace((\Lambda + X)(\Lambda + X)^{H}) = trace((\Lambda + X)(\Lambda^{H} + X^{H})) = trace(\Lambda \Lambda^{H} + \Lambda X^{H} + X \Lambda^{H} + XX^{H})$.\newline
+I'll use the notation of Y to represent everything other than $\Lambda \Lambda^{H}$ so one is left with $trace(\Lambda \Lambda^{H} + Y) = trace(\Lambda \Lambda^{H}) + trace(Y)$.\newline
+$trace(\Lambda \Lambda^{H})$ is equivalent to $\Sigma |\lambda_{i}|^{2}$ so finally one obtains that $\Sigma |A_{ij}|^{2} = \Sigma |\lambda_{i}|^{2} + trace(Y)$ which means that $\Sigma |A_{ij}|^{2} \geq \Sigma |\lambda_{i}|^{2} $
+\newline
+\newline
+\textbf{Problem 5}
+\newline
+\newline
+det$\left(\begin{array}{cc} 5 - \lambda & \frac{-8}{5}\\ 12 & \frac{-19}{5} - \lambda\end{array}\right)$ = $(5 - \lambda)\cdot (\frac{-19}{5} - \lambda) - (\frac{-8}{5} \cdot 12) = 0$ \newline
+simplifies to $(\lambda - 1) \cdot (\lambda - \frac{1}{5}) = 0$, therefore $\lambda_{1} = 1$ and $\lambda_{2} = \frac{1}{5}$. Solving for the eigenvectors results in $v_{1} = [1, \frac{5}{2}]^{T}$ and $v_{2} = [1, 3]^{T}$ \newline
+\newline
+The algebraic multiplicity is equivalent to the geometric multiplicity so A is diagonalizable.
+\newline
+Rearranged into the form $A = PDP^{-1}$: \newline
+ $A = \left(\begin{array}{cc} 1 & 1\\ \frac{5}{2} & 3\end{array}\right) \cdot \left(\begin{array}{cc} 1 & 0\\ 0 & \frac{1}{5}\end{array}\right) \cdot \left(\begin{array}{cc} 6 & -2\\ -5 & 2\end{array}\right)$. It follows that \newline
+ $A^{N} = \left(\begin{array}{cc} 1 & 1\\ \frac{5}{2} & 3\end{array}\right) \cdot \left(\begin{array}{cc} 1^{N} & 0\\ 0 & \frac{1}{5}^{N}\end{array}\right) \cdot \left(\begin{array}{cc} 6 & -2\\ -5 & 2\end{array}\right)$
+, and as N approaches infinity the result becomes:\newline
+$\left(\begin{array}{cc} 1 & 1\\ \frac{5}{2} & 3\end{array}\right) \cdot \left(\begin{array}{cc} 1 & 0\\ 0 & 0\end{array}\right) \cdot \left(\begin{array}{cc} 6 & -2\\ -5 & 2\end{array}\right) = \left(\begin{array}{cc} 6 & -2\\ 15 & -5\end{array}\right)$
+\end{document}

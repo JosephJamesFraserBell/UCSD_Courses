@@ -1,0 +1,19 @@
+\BOOKMARK [1][-]{section.1}{CSE 252A Computer Vision I Fall 2019 - Homework 2}{}% 1
+\BOOKMARK [2][-]{subsubsection.1.0.1}{Instructor: Ben Ochoa}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.0.2}{Assignment Published On: Tuesday, October 8, 2019}{subsubsection.1.0.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.0.3}{Due On: Tuesday, October 22, 2019 11:59 pm}{subsubsection.1.0.1}% 4
+\BOOKMARK [2][-]{subsection.1.1}{Instructions}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.2}{Problem 1: Perspective Projection and Homogenous Coordinates [10 pts]}{section.1}% 6
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Part 1 [5 pts]}{subsection.1.2}% 7
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Part 2 [3 pts]}{subsection.1.2}% 8
+\BOOKMARK [3][-]{subsubsection.1.2.3}{Part 3 [2 pts]}{subsection.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.3}{Problem 2: Image Formation and Rigid Body Transformations [10 points]}{section.1}% 10
+\BOOKMARK [2][-]{subsection.1.4}{Problem 3: Homography [12 pts]}{section.1}% 11
+\BOOKMARK [2][-]{subsection.1.5}{Problem 4: Surface Rendering [18 pts]}{section.1}% 12
+\BOOKMARK [3][-]{subsubsection.1.5.1}{Data}{subsection.1.5}% 13
+\BOOKMARK [3][-]{subsubsection.1.5.2}{Lambertian Illumination}{subsection.1.5}% 14
+\BOOKMARK [3][-]{subsubsection.1.5.3}{Phong Illumination}{subsection.1.5}% 15
+\BOOKMARK [3][-]{subsubsection.1.5.4}{Rendering}{subsection.1.5}% 16
+\BOOKMARK [3][-]{subsubsection.1.5.5}{Part 1. Loading pickle files and plotting the normals [4 pts] \(Sphere - 2pts, Pear - 2pts\)}{subsection.1.5}% 17
+\BOOKMARK [3][-]{subsubsection.1.5.6}{Part 2. Lambertian model [6 pts]}{subsection.1.5}% 18
+\BOOKMARK [3][-]{subsubsection.1.5.7}{Part 3. Phong model [8 pts]}{subsection.1.5}% 19

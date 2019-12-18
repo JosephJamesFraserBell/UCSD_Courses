@@ -1,0 +1,225 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\begin{document}
+\title{ECE 269 Homework 3}
+\author{Joseph Bell}
+\date{November 5, 2019}
+\maketitle
+\textbf{Problem 1}
+\newline
+\textbf{a)}
+\newline
+Given $x,y \in V_{perp}$ and $z \in V$
+\newline
+$(x + y)z = xz + yz = 0 + 0 = 0$
+\newline
+Given $u \in V_{perp}, v \in V, \alpha \in F$
+\newline
+$(\alpha \cdot u)v = \alpha(u \cdot v) = \alpha \cdot 0 = 0$
+\newline
+Therefore, closed under addition and scalar multiplication, so $V_{perp}$ is a subspace of $R^{n}$
+\newline
+\textbf{b)}
+\newline
+Given $\left(\begin{array}{ccccc} v_{1}&v_{2}&v_{3}&...& v_{k}\end{array}\right) \in R^{n \times k}, V = Range(A)$
+\newline
+$V^{T} = \left(\begin{array}{ccccc} c_{1}&c_{2}&c_{3}&...& c_{k}\end{array}\right)$ s.t. $v_{1}c_{1} + v_{2}c_{2} + v_{3}c_{3} + ... + v_{k}c_{k} = 0$ which is represented in matrix form as:
+\newline
+$\left(\begin{array}{c} v_{1}^{T}\\v_{2}^{T}\\v_{3}^{T}\\...\\ v_{k}^{T}\end{array}\right) \cdot \left(\begin{array}{ccccc} c_{1}&c_{2}&c_{3}&...& c_{k}\end{array}\right) $
+\newline
+One can see that left side matrix is equivalent to $A^{T}$ and the right side matrix is equivalent to $N(A^{T})$
+\newline
+Therefore, $V = A^{T}$ and $V_{perp} = N(A^{T})$
+\newline
+\textbf{c)}
+\newline
+Using $x \in (V_{perp})_{perp}, v \in V, w \in V_{perp}, and x = v + w$
+\newline
+$x = v + w comes from the rule that the addition of 2 subspaces in R^{n} is in R^{n}$
+\newline
+Then, $x \cdot w = 0 = (v+w) \cdot w = vw + ww = 0$
+\newline
+This results in $||w||^{2} = 0$ as $vw = 0, since v \in V and w \in V_{perp}$
+\newline
+Then, $||w||^{2} = \sum_{i=1}^{N} (w_{i})^{2} = 0$ means that w must equal 0.
+\newline
+This means that $x = v + w = v + 0$ and therefore, $x = v$.
+\newline
+Since $v \in V$ this means every points in $(V_{perp})_{perp} \in V$ so $(V_{perp})_{perp} \subseteq V$ 
+\newline
+Next, using $x \in (V_{perp})_{perp}, v \in V, w \in V_{perp}, and v = w + x$
+\newline
+$v \cdot w = (w + x) \cdot w = w \cdot w + x \cdot w = w \cdot w + 0 = 0$.
+\newline
+This again means that $||w||^{2} = 0$ and $||w||^{2} = \sum_{i=1}^{N} (w_{i})^{2} = 0$. So, w = 0 and then $v = 0 + x$ and therefore, $v = x$ shows that $ V \subseteq (V_{perp})_{perp}$
+\newline
+Since $(V_{perp})_{perp} \subseteq V$ and $ V \subseteq (V_{perp})_{perp}$ 
+\newline
+this means that $ V = (V_{perp})_{perp}$.
+\newline
+\textbf{d)}
+\newline
+From part b I showed that representing a subspace V as a matrix A one obtains that $V = Range(A)$ and $V_{perp} = N(A^{T})$.
+\newline
+Then, following the rule that $rank(A) = n - dim(N(A^{T}))$ and substituting in $V$ and $V_{perp}$ one obtains $dim(V) = n - dim(V_{perp})$ which can be rearranged to $dim(V) +  dim(V_{perp}) = n$
+\newline
+\textbf{e)}
+\newline
+First I will prove uniqueness.
+\newline
+Using $v \in V, w \in W, x_{1} and x_{2} \in V_{perp}, and y \in W_{perp}$
+\newline
+if $V \subseteq W$ and $w \cdot y = 0$ and using that x is any point in $V_{perp}$ s.t. $v \cdot x = 0$
+\newline
+if $v \cdot x_{1} = 0$ and $v \cdot x_{2} = 0$ then it follows that $v(x_{1} + x_{2}) = 0$. This shows that $(x_{1} + x_{2}) \in V_{perp}$ which means both $x_{1}$ and $x_{2}$ must be $\in V_{perp}$ which we know to be true.
+\newline
+Then, since every value of V is in W it must be true that $v \cdot x + v \cdot y = 0$ which results in $v(x + y) = 0$. Therefore, $(x + y) \in V_{perp}$ and using the previous rule it must be that both x and y $\in V_{perp}$. Therefore, every point of $W_{perp} \in V_{perp}$ and ultimately $W_{perp} \subseteq V_{perp}$
+\newline
+\textbf{f)}
+\newline
+Let $A_{1}, A_{2} \in V$ and $B_{1}, B_{2} \in V_{perp}$
+\newline
+Then, $X = A_{1} + B_{1} = A_{2} + B_{2}$ which is rearranged to $A_{1} - A_{2} = B_{1} - B_{2}$. Since we know $A_{1} - A_{2} \in V$, $B_{1} - B_{2} \in V_{perp}$, and that $V \cap V_{perp} = 0$ it must be true that $A_{1} - A_{2} = B_{1} - B_{2} = 0$ which then follows that $A_{1} = A_{2}$ and  $B_{1} = B_{2}$. 
+\newline
+Next is to prove existence.
+\newline
+If $V \in R^{n}$, i.e. V is a finite dimensional inner-product space:
+\newline
+Let $B_{M}$ be an orthonormal basis of $M$ and let $B_{M-perp}$ be an orthonormal basis of $M_{perp}$
+\newline
+Since $M \cap M_{perp} = 0$, $B_{M} \cup B_{M-perp}$ forms an orthonormal basis for some new subspace I'll call $S$. s.t. $S \subseteq V$.
+\newline
+Now, if $S \neq V$ then there must be some other orthonormal basis $E$ s.t. $B_{M} \cup B_{M-perp} \cup E$ forms an orthonormal basis for V. Since these are orthonormal bases it must follow that E is perpendicular to M, which means that $E \subseteq B_{M-perp}$, but this is not possible since these orthonormal bases are independent by definition. Therefore, E = 0 and $V = B_{M} \cup B_{M-perp}$
+\newline
+\textbf{Problem 2}
+\newline
+Using the theorems that $rank(AB \leq min{rank(A), rank(B)}and that rank(A)+rank(B) - n \leq rank(AB)$
+\newline
+It follows that the minimum and maximum rank of AB is 2
+\newline
+\textbf{a)}
+\newline
+Let A = $\left(\begin{array}{ccc} 0&0&0 \\0&1&0\\ 0&0&0 \\ 1&0&0 \end{array}\right)$ and B = $\left(\begin{array}{ccc} 1&0&0 \\0&1&0\\ 0&0&1 \end{array}\right)$
+\newline
+Then AB = 
+$\left(\begin{array}{ccc} 0&0&0 \\0&1&0\\ 0&0&0 \\ 1&0&0 \end{array}\right)$ which has rank 2
+\newline
+\textbf{b)}
+\newline
+Let A = $\left(\begin{array}{ccc} 1&0&0 \\0&1&0\\ 0&0&0 \\ 0&0&0 \end{array}\right)$ and B = $\left(\begin{array}{ccc} 1&0&0 \\0&0&1\\ 0&1&0 \end{array}\right)$
+\newline
+Then AB = 
+$\left(\begin{array}{ccc} 1&0&0 \\0&0&1\\ 0&0&0 \\ 0&0&0 \end{array}\right)$ which has rank 2
+\newline
+\textbf{Problem 3}
+\newline
+$||U^{T}x||^{2} = (U^{T}x)^{T}U^{T}x = x^{T}UU^{T}x = x^{T}Ix = x^{T}x = ||x||^{2}$. So for the case of square matrices, $||U^{T}x|| = ||x||$.
+\newline
+However, if k < n for $U^{n \times k}$ there is a matrix Q that has n-k columns s.t. $[U|Q] \in R^{n \times n}$.
+\newline
+It follows that $||[U|Q]^{T}x||^{2} = ||\frac{U^{T}}{Q^{T}}x||^{2} = ||\frac{U^{T}x}{Q^{T}x}||^{2}$.
+\newline
+Using $||\frac{a}{b}||^{2} = ||a||^{2} + ||b||^{2}$ one obtains $||U^{T}x||^{2} + ||Q^{T}x||^{2} = ||x||^{2}$
+\newline
+Since $||Q^{T}x||^{2} \geq 0$ it follows that $||U^{T}x||^{2} \leq ||x||^{2}$ and ultimately:
+\newline
+ $||U^{T}x|| \leq ||x||$
+\newline
+\textbf{Problem 4}
+\newline
+\textbf{a)}
+\newline
+$(I-2uu^{T})(I-2uu^{T})^{T} = (I-2uu^{T})(I-2uu^{T})$
+\newline
+ $= I - 2uu^{T} - 2uu^{T} + 4(uu^{T})(uu^{T}) $
+ \newline
+ $ = I - 4uu^{T} = 4uu^{T}uu^{T} = I - 4uu^{T} + 4uu^{T} = I - 0 = I$
+\newline
+Therefore, Q is orthogonal.
+\newline
+\textbf{b)}
+\newline
+$(I - 2uu^{T})u = u - 2uu^{T}u = u - 2u = -u$
+\newline
+$(I - 2uu^{T})v = v - 2uu^{T}v$
+\newline
+Using $u^{T}v=0$
+\newline
+$(I - 2uu^{T})v = v - 0 = v$
+\newline
+\textbf{c)}
+\newline
+Since $QQ^{T} = QQ = I$
+\newline
+$Qy = x$
+\newline
+\textbf{d)}
+\newline
+$det(Q) = det(I-2uu^{T}) = det(I - 2u^{T}u) = 1 - 2u^{T}u = 1 - 2 = - 1$
+\newline
+\textbf{e)}
+If x is perpendicular to u, then x is just a column or set of columns of y.
+\newline
+$I - 2uu^{T} = I$
+\newline
+$2uu^{T} = 0$
+\newline
+$2(u^{T}u)^{T} = 0$
+\newline
+Therefore, u = 0.
+\newline
+\textbf{Problem 5}
+\newline
+\textbf{a)}
+\newline
+\textbf{i)} $(I-P)^{T} = I^{T} - P^{T} = I - P^{T} = I - P$
+\newline
+\textbf{ii)} $(I - P)^{2} = (I - P)(I - P) = I \cdot I - I \cdot P - P \cdot I + P \cdot P$ 
+\newline
+$= I - P - P + P = I - P$
+\newline
+\textbf{b)}
+\newline
+\textbf{i)} $(UU^{T})^{T} = (U^{T})^{T} \cdot U^{T} = UU^{T}$
+\newline
+\textbf{ii)} 
+$(UU^{T})^{2} = (UU^{T})(UU^{T}) = UU^{T}UU^{T} = UIU^{T} = UU^{T}$
+\newline
+\textbf{c)}
+\newline
+\textbf{i)} $(A(A^{T}A)^{-1}A^{T})^{T} = (A^{T})^{T}((A^{T}A)^{-1})^{T}A^{T}$
+\newline
+$= A(A^{-1}(A^{T})^{-1})^{T}A^{T} = A((A^{T})^{-1})^{T}(A^{-1})^{T}A^{T} = AA^{-1}(A^{-1})^{T}A^{T} = A(A^{T}A)^{-1}A^{T}$
+\newline
+\textbf{ii)} 
+\newline
+$(A(A^{T}A)^{-1}A^{T})^{2} =(A(A^{T}A)^{-1}A^{T})(A(A^{T}A)^{-1}A^{T}) = AA^{-1}(A^{T})^{-1}A^{T}AA^{-1}(A^{T})^{-1}A^{T}$
+\newline
+$= I\cdot I \cdot AA^{-1}(A^{T})^{-1}A^{T} = A(A^{T}A)^{-1}A^{T}$
+\newline
+\textbf{d)}
+\newline
+R(P) is the span of the columns of P. Need to verify (x-Px) is perpendicular to the columns of P.
+\newline
+$(x - Px)^{T}P = (x^{T}-x^{T}P^{T})P =$ 
+\newline
+$ (x^{T}-x^{T}P)P = x^{T}P - x^{T}PP = x^{T}P - x^{T}P = 0$
+\newline
+\textbf{e)}
+\newline
+Must find the matrix P s.t. the columns of u are perpendicular to the error of x - Px.
+\newline
+$u^{T}(x - Px) = u^{T}x - u^{T}Px = 0$
+\newline
+$u^{T}x = u^{T}Px$
+\newline
+$u^{T} = u^{T}P$
+\newline
+$uu^{T} = uu^{T}P$
+\newline
+$uu^{T} = 1 * P$
+\newline
+$uu^{T} = P$
+\end{document}
