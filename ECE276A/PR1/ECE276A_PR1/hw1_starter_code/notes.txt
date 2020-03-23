@@ -1,0 +1,10 @@
+organizing data
+- split into stop signs, no stop signs, stop signs that were unused bc they were too small/obscured
+
+decided to reformat training data to select just red sections and see results with transformed color space
+ tried HSV, YCbCr, LAB but results were bad
+ rgb results were good with 75 training images
+ added an extra 80 images of 'not stop sign'
+
+
+ issues = optimizing code, but solved

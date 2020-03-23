@@ -1,0 +1,62 @@
+import cv2
+import matplotlib.pyplot as plt
+from matplotlib.image import imread
+import os
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+from matplotlib import colors
+import numpy as np
+from roipoly import RoiPoly
+import imageio
+from skimage import *
+from roipoly import MultiRoi
+import sympy
+import math
+
+
+
+##### This code is used to generate the convergence plot for the report #####
+x = np.linspace(1,100,100)
+y = np.array([338115788.75, 321188941.25000006, 304262093.75000006, 287335246.25, 270408398.74999994, 253481551.24999994, 236554703.75000006, 219627856.25000018, 202701008.75000012, 185774161.25, 168847313.75, 151920466.24999988, 134993618.75, 118066771.24999994, 101139923.74999988, 84213076.25000006, 67286228.75000006, 50359381.25, 33432533.74999994, 16505686.249999896, -421161.2499999106, -15861664.350000009, -28237125.75000012, -39512320.55000001, -50202323.95000011, -60217266.75000024, -69324246.6500001, -77776773.35000002, -85523943.24999988, -92773325.1500001, -99606988.94999981, -105795748.44999981, -111317058.24999976, -116033889.25000024, -119914123.54999995, -123097940.55000019, -125268799.3499999, -125872318.04999995, -124341700.1500001, -121046941.75000024, -115048833.54999995, -105365581.8499999, -92350346.8499999, -75792535.04999995, -55678598.650000095, -32415721.75, -6785108.849999666, 20027052.349999905, 46669494.55000019, 71804425.8499999, 94504376.25, 114229051.05000019, 130869614.1500001, 144594455.4500003, 155480293.75, 163352438.6500001, 168724727.75, 172457545.4500003, 174738028.0499997, 175240962.0500002, 174653647.1500001, 173323381.0500002, 171413518.4500003, 169082175.14999962, 166396720.6500001, 163419065.5500002, 160184963.5500002, 156723559.0500002, 153060628.9500003, 149220357.35000038, 145214660.25, 141059828.35000038, 136769662.5500002, 132351562.14999962, 127784265.94999981, 123026908.45000029, 118064865.25, 112932561.85000038, 107647256.04999971, 102229830.24999952, 96692985.1500001, 91051445.55000019, 85318015.6500001, 79502056.35000038, 73620301.55000019, 67684383.44999981, 61702587.549999714, 55679448.549999714, 49623157.25000048, 43534058.35000038, 37425697.049999714, 31298873.14999962, 25159832.44999981, 19011839.55000019, 12862415.150000095, 6714239.849999905, 570916.25, -5558475.25, -11675324.94999981, -17772264.349999905])
+plt.plot(x,y)
+plt.xlabel("Iterations")
+plt.ylabel("Parameter Delta")
+plt.show()
+
+
+
+##### This code is used to generate the 3D color space plots for the report #####
+path = os.path.join(os.getcwd(), 'trainset', '3.jpg')
+img = cv2.imread(path)
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+img2 = cv2.cvtColor(img, cv2.COLOR_BGR2YCR_CB)
+img2 = img
+pixel_colors = img.reshape((np.shape(img2)[0]*np.shape(img2)[1], 3))
+norm = colors.Normalize(vmin=-1.,vmax=1.)
+norm.autoscale(pixel_colors)
+pixel_colors = norm(pixel_colors).tolist()
+
+r, g, b = cv2.split(img)
+fig = plt.figure()
+axis = fig.add_subplot(1, 1, 1, projection="3d")
+
+axis.scatter(r.flatten(), g.flatten(), b.flatten(), facecolors=pixel_colors, marker=".")
+axis.set_xlabel("R")
+axis.set_ylabel("G")
+axis.set_zlabel("B")
+plt.show()
+
+##### This code was used to generate binary masks for training images #####
+trainset = os.path.join(os.getcwd(),'trainset')
+masks = os.path.join(os.getcwd(), 'masks')
+for file in trainset:
+	mask_path = os.path.join(mask,file)
+	img = imageio.imread(os.path.join(trainset, file))
+	plt.imshow(img)
+	my_roi = roipoly(roicolor='r') 
+
+	mask  = my_roi.getMask(img)
+
+	imageio.imwrite(mask_path, mask)
+

@@ -1,0 +1,740 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.7.7)  27 FEB 2020 22:35
+entering extended mode
+**./PR2_report.tex
+(PR2_report.tex
+LaTeX2e <2018-04-01> patch level 5
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ieeetran\IEEEtran.
+cls"
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpdimenC=\dimen104
+\@IEEEtrantmpcountA=\count80
+\@IEEEtrantmpcountB=\count81
+\@IEEEtrantmpcountC=\count82
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen105
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen106
+\CLASSINFOnormalsizeunitybaselineskip=\dimen107
+\IEEEnormaljot=\dimen108
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+\IEEEquantizedlength=\dimen109
+\IEEEquantizedlengthdiff=\dimen110
+\IEEEquantizedtextheightdiff=\dimen111
+\IEEEilabelindentA=\dimen112
+\IEEEilabelindentB=\dimen113
+\IEEEilabelindent=\dimen114
+\IEEEelabelindent=\dimen115
+\IEEEdlabelindent=\dimen116
+\IEEElabelindent=\dimen117
+\IEEEiednormlabelsep=\dimen118
+\IEEEiedmathlabelsep=\dimen119
+\IEEEiedtopsep=\skip41
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@IEEEsubequation=\count87
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count88
+\c@table=\count89
+\@IEEEeqnnumcols=\count90
+\@IEEEeqncolcnt=\count91
+\@IEEEsubeqnnumrollback=\count92
+\@IEEEquantizeheightA=\dimen120
+\@IEEEquantizeheightB=\dimen121
+\@IEEEquantizeheightC=\dimen122
+\@IEEEquantizeprevdepth=\dimen123
+\@IEEEquantizemultiple=\count93
+\@IEEEquantizeboxA=\box26
+\@IEEEtmpitemindent=\dimen124
+\IEEEPARstartletwidth=\dimen125
+\c@IEEEbiography=\count94
+\@IEEEtranrubishbin=\box27
+)
+** ATTENTION: Overriding command lockouts (line 2).
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.st
+y"
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.st
+y"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen126
+))
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen127
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen128
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks16
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks17
+\eqnshift@=\dimen129
+\alignsep@=\dimen130
+\tagshift@=\dimen131
+\tagwidth@=\dimen132
+\totwidth@=\dimen133
+\lineht@=\dimen134
+\@envbody=\toks18
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.s
+ty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.
+sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithms\algorit
+hmic.sty"
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.st
+y"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+)
+\c@ALC@unique=\count107
+\c@ALC@line=\count108
+\c@ALC@rem=\count109
+\c@ALC@depth=\count110
+\ALC@tlm=\skip47
+\algorithmicindent=\skip48
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count111
+\float@exts=\toks21
+\float@box=\box30
+\@float@everytoks=\toks22
+\@floatcapt=\box31
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.
+sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.
+sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graph
+ics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdfte
+x.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
+File: ts1enc.dfu 2018/04/05 v1.2c UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+FEFF (decimal 65279)
+))
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+) ("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.st
+y"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color
+.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (PR2_report.aux)
+\openout1 = `PR2_report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 15.
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 15.
+
+-- Lines per column: 56 (exact).
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
+ii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count112
+\scratchdimen=\dimen137
+\scratchbox=\box32
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen138
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks24
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-
+base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infware
+rr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.st
+y"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvdefin
+ekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds
+.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions
+.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvsetke
+ys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\etexcmd
+s.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifluate
+x.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\pdftexc
+mds.sty"
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.s
+ty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+<thor.png, id=1, 246.42062pt x 245.91875pt>
+File: thor.png Graphic file (type png)
+<use thor.png>
+Package pdftex.def Info: thor.png  used on input line 48.
+(pdftex.def)             Requested size: 142.26378pt x 141.98004pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+("C:\Users\josep\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<eq1.png, id=3, 344.28625pt x 52.195pt>
+File: eq1.png Graphic file (type png)
+<use eq1.png>
+Package pdftex.def Info: eq1.png  used on input line 56.
+(pdftex.def)             Requested size: 256.0748pt x 38.82199pt.
+<eq2.png, id=4, 304.63812pt x 49.68562pt>
+File: eq2.png Graphic file (type png)
+<use eq2.png>
+Package pdftex.def Info: eq2.png  used on input line 67.
+(pdftex.def)             Requested size: 256.0748pt x 41.76671pt.
+[1{C:/Users/josep/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+ <./thor.png> <./eq1.png> <./eq2.png>]
+<eq4.png, id=22, 279.0425pt x 86.3225pt>
+File: eq4.png Graphic file (type png)
+<use eq4.png>
+Package pdftex.def Info: eq4.png  used on input line 73.
+(pdftex.def)             Requested size: 256.0748pt x 79.22006pt.
+<eq3.png, id=23, 350.30875pt x 73.77562pt>
+File: eq3.png Graphic file (type png)
+<use eq3.png>
+Package pdftex.def Info: eq3.png  used on input line 79.
+(pdftex.def)             Requested size: 256.0748pt x 53.93341pt.
+<eq5.png, id=24, 339.2675pt x 69.76062pt>
+File: eq5.png Graphic file (type png)
+<use eq5.png>
+Package pdftex.def Info: eq5.png  used on input line 85.
+(pdftex.def)             Requested size: 256.0748pt x 52.6567pt.
+<eq6.png, id=25, 244.41313pt x 28.105pt>
+File: eq6.png Graphic file (type png)
+<use eq6.png>
+Package pdftex.def Info: eq6.png  used on input line 91.
+(pdftex.def)             Requested size: 199.16928pt x 22.90257pt.
+<eq7.png, id=26, 329.73187pt x 63.73813pt>
+File: eq7.png Graphic file (type png)
+<use eq7.png>
+Package pdftex.def Info: eq7.png  used on input line 97.
+(pdftex.def)             Requested size: 199.16928pt x 38.50089pt.
+<eq8.png, id=27, 299.1175pt x 39.14626pt>
+File: eq8.png Graphic file (type png)
+<use eq8.png>
+Package pdftex.def Info: eq8.png  used on input line 103.
+(pdftex.def)             Requested size: 199.16928pt x 26.06596pt.
+<thor_datat.png, id=28, 224.33812pt x 85.31876pt>
+File: thor_datat.png Graphic file (type png)
+<use thor_datat.png>
+Package pdftex.def Info: thor_datat.png  used on input line 110.
+(pdftex.def)             Requested size: 142.26378pt x 54.10649pt.
+ [2 <./eq4.png> <./eq3.png> <./eq5.png> <./eq6.png> <./eq7.png> <./eq8.png> <./
+thor_datat.png>]
+<mm.png, id=39, 135.50626pt x 35.13126pt>
+File: mm.png Graphic file (type png)
+<use mm.png>
+Package pdftex.def Info: mm.png  used on input line 124.
+(pdftex.def)             Requested size: 85.35826pt x 22.13065pt.
+<eq10.png, id=40, 146.5475pt x 35.63312pt>
+File: eq10.png Graphic file (type png)
+<use eq10.png>
+Package pdftex.def Info: eq10.png  used on input line 135.
+(pdftex.def)             Requested size: 113.81102pt x 27.67299pt.
+<eq9.png, id=41, 197.73875pt x 42.65938pt>
+File: eq9.png Graphic file (type png)
+<use eq9.png>
+Package pdftex.def Info: eq9.png  used on input line 142.
+(pdftex.def)             Requested size: 142.26378pt x 30.69193pt.
+<eq11.png, id=42, 106.3975pt x 38.1425pt>
+File: eq11.png Graphic file (type png)
+<use eq11.png>
+Package pdftex.def Info: eq11.png  used on input line 150.
+(pdftex.def)             Requested size: 85.35826pt x 30.60191pt.
+<resample.png, id=43, 241.90375pt x 178.16562pt>
+File: resample.png Graphic file (type png)
+<use resample.png>
+Package pdftex.def Info: resample.png  used on input line 155.
+(pdftex.def)             Requested size: 85.35826pt x 62.86726pt.
+ [3 <./mm.png> <./eq10.png> <./eq9.png> <./eq11.png> <./resample.png>]
+<l0_logmap.png, id=52, 294.60063pt x 290.08376pt>
+File: l0_logmap.png Graphic file (type png)
+<use l0_logmap.png>
+Package pdftex.def Info: l0_logmap.png  used on input line 179.
+(pdftex.def)             Requested size: 85.35826pt x 84.04688pt.
+<l0_particle.png, id=53, 303.63437pt x 257.46187pt>
+File: l0_particle.png Graphic file (type png)
+<use l0_particle.png>
+Package pdftex.def Info: l0_particle.png  used on input line 183.
+(pdftex.def)             Requested size: 85.35826pt x 72.37561pt.
+<l1_logmap.png, id=54, 351.81438pt x 349.305pt>
+File: l1_logmap.png Graphic file (type png)
+<use l1_logmap.png>
+Package pdftex.def Info: l1_logmap.png  used on input line 188.
+(pdftex.def)             Requested size: 85.35826pt x 84.74632pt.
+<l1_particle.png, id=55, 337.76187pt x 331.73938pt>
+File: l1_particle.png Graphic file (type png)
+<use l1_particle.png>
+Package pdftex.def Info: l1_particle.png  used on input line 192.
+(pdftex.def)             Requested size: 85.35826pt x 83.83565pt.
+<l2_logmap.png, id=56, 257.96375pt x 239.89626pt>
+File: l2_logmap.png Graphic file (type png)
+<use l2_logmap.png>
+Package pdftex.def Info: l2_logmap.png  used on input line 197.
+(pdftex.def)             Requested size: 85.35826pt x 79.37831pt.
+<l2_particle.png, id=57, 247.42438pt x 259.46938pt>
+File: l2_particle.png Graphic file (type png)
+<use l2_particle.png>
+Package pdftex.def Info: l2_particle.png  used on input line 201.
+(pdftex.def)             Requested size: 85.35826pt x 89.51306pt.
+<l3_logmap.png, id=58, 285.56688pt x 289.08pt>
+File: l3_logmap.png Graphic file (type png)
+<use l3_logmap.png>
+Package pdftex.def Info: l3_logmap.png  used on input line 206.
+(pdftex.def)             Requested size: 85.35826pt x 86.40707pt.
+<l3_particle.png, id=59, 322.70563pt x 269.50688pt>
+File: l3_particle.png Graphic file (type png)
+<use l3_particle.png>
+Package pdftex.def Info: l3_particle.png  used on input line 210.
+(pdftex.def)             Requested size: 85.35826pt x 71.28326pt.
+<l4_logmap.png, id=60, 273.02pt x 315.67938pt>
+File: l4_logmap.png Graphic file (type png)
+<use l4_logmap.png>
+Package pdftex.def Info: l4_logmap.png  used on input line 215.
+(pdftex.def)             Requested size: 85.35826pt x 98.6929pt.
+<l4_particle.png, id=61, 257.96375pt x 230.36063pt>
+File: l4_particle.png Graphic file (type png)
+<use l4_particle.png>
+Package pdftex.def Info: l4_particle.png  used on input line 219.
+(pdftex.def)             Requested size: 85.35826pt x 76.2231pt.
+
+Underfull \vbox (badness 1603) has occurred while \output is active []
+
+ [4 <./l0_logmap.png> <./l0_particle.png> <./l1_logmap.png> <./l1_particle.png>
+ <./l2_logmap.png> <./l2_particle.png> <./l3_logmap.png> <./l3_particle.png> <.
+/l4_logmap.png>]
+<l0_particle_traj.png, id=74, 718.685pt x 321.70187pt>
+File: l0_particle_traj.png Graphic file (type png)
+<use l0_particle_traj.png>
+Package pdftex.def Info: l0_particle_traj.png  used on input line 224.
+(pdftex.def)             Requested size: 85.35826pt x 38.20494pt.
+<l1_particle_traj.png, id=75, 725.20938pt x 328.22626pt>
+File: l1_particle_traj.png Graphic file (type png)
+<use l1_particle_traj.png>
+Package pdftex.def Info: l1_particle_traj.png  used on input line 229.
+(pdftex.def)             Requested size: 85.35826pt x 38.62918pt.
+<l2_particle_traj.png, id=76, 701.62125pt x 325.215pt>
+File: l2_particle_traj.png Graphic file (type png)
+<use l2_particle_traj.png>
+Package pdftex.def Info: l2_particle_traj.png  used on input line 234.
+(pdftex.def)             Requested size: 85.35826pt x 39.565pt.
+<l3_particle_traj.png, id=77, 705.13437pt x 335.2525pt>
+File: l3_particle_traj.png Graphic file (type png)
+<use l3_particle_traj.png>
+Package pdftex.def Info: l3_particle_traj.png  used on input line 239.
+(pdftex.def)             Requested size: 85.35826pt x 40.58153pt.
+<l4_particle_traj.png, id=78, 708.14563pt x 324.71312pt>
+File: l4_particle_traj.png Graphic file (type png)
+<use l4_particle_traj.png>
+Package pdftex.def Info: l4_particle_traj.png  used on input line 244.
+(pdftex.def)             Requested size: 85.35826pt x 39.1373pt.
+
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[5
+
+ <./l4_particle.png> <./l0_particle_traj.png> <./l1_particle_traj.png> <./l2_pa
+rticle_traj.png> <./l3_particle_traj.png> <./l4_particle_traj.png>]
+(PR2_report.aux) ) 
+Here is how much of TeX's memory you used:
+ 4573 strings out of 492973
+ 68000 string characters out of 3126693
+ 137333 words of memory out of 3000000
+ 8356 multiletter control sequences out of 15000+200000
+ 34706 words of font info for 70 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,8n,35p,1245b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/d
+vips/base/8r.enc}<C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/josep/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/josep/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/jose
+p/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmb8a.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/ur
+w/times/utmbi8a.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmr8a.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on PR2_report.pdf (5 pages, 2519281 bytes).
+PDF statistics:
+ 120 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+
